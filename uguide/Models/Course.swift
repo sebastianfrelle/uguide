@@ -13,8 +13,12 @@ class Course: Model {
     var id: String
     var courseLocation: CourseLocation?
     
-    init?(name: String, id: String, courseLocation: CourseLocation? = nil) {
-        if name.isEmpty || id.isEmpty {
+    init?(name: String, id: String, courseLocation: CourseLocation?) {
+        if name.isEmpty {
+            return nil
+        }
+        
+        if id.isEmpty || id.count > 5 {
             return nil
         }
 
@@ -22,10 +26,11 @@ class Course: Model {
         self.id = id
         self.courseLocation = courseLocation
     }
-
-    required convenience init?(coder aDecoder: NSCoder) {
-        print("what")
-        self.init(name: "", id: "")
+    
+    convenience init?(name: String, id: String, campus: Campus, building: Building, room: Room) {
+        let courseLocation = CourseLocation(campus: campus, building: building, room: room)
+        
+        self.init(name: name, id: id, courseLocation: courseLocation)
     }
 }
 
