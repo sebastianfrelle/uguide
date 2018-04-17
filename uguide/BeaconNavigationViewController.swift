@@ -10,6 +10,10 @@ import UIKit
 
 class BeaconNavigationViewController: UIViewController {
 
+//    @IBAction func exitNavigationController(_ sender: UIBarButtonItem) {
+//        print("I exited the thing 👍")
+//    }
+//
     override func viewDidLoad() {
         super.viewDidLoad()
 

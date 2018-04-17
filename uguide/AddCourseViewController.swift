@@ -95,7 +95,7 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
 }

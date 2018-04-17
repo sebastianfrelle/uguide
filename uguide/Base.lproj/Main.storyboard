@@ -457,15 +457,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cto-UX-Vf3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="r2h-Il-wU7">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tv0-vv-Ujx"/>
+                    <navigationItem key="navigationItem" title="Find Building" id="r2h-Il-wU7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tv0-vv-Ujx">
+                            <connections>
+                                <action selector="cancel:" destination="CkX-p9-D4n" id="nv7-as-IHg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vko-0H-N8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4249" y="1030"/>
         </scene>
-        <!--Beacon Navigation View Controller-->
+        <!--Find Room-->
         <scene sceneID="5XZ-ne-got">
             <objects>
                 <viewController id="LoL-Kz-l9F" customClass="BeaconNavigationViewController" customModule="uguide" customModuleProvider="target" sceneMemberID="viewController">
@@ -484,8 +488,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yUY-q6-uwM"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Find Room" id="OBi-5c-0FM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="hoB-4z-exC">
+                            <connections>
+                                <segue destination="gVv-Uk-W3e" kind="unwind" unwindAction="unwindToCourseViewWithSender:" id="RQ8-FP-MwY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzu-IM-VRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gVv-Uk-W3e" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5097" y="1030"/>
         </scene>

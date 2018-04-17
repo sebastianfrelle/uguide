@@ -45,9 +45,13 @@ class CourseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
+    
+    @IBAction func unwindToCourseView(sender: UIStoryboardSegue) {
+        print("Unwound to course view 🇸🇪")
+        print(sender)
+    }
+    /*
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,5 +59,4 @@ class CourseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

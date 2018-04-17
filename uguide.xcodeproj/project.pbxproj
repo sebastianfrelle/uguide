@@ -119,8 +119,6 @@
 		965C06272084BF600001C6D3 = {
 			isa = PBXGroup;
 			children = (
-				965C066E2084E8C00001C6D3 /* MapNavigationViewController.swift */,
-				965C06702084E9150001C6D3 /* BeaconNavigationViewController.swift */,
 				965C06322084BF600001C6D3 /* uguide */,
 				965C06472084BF610001C6D3 /* uguideTests */,
 				965C06312084BF600001C6D3 /* Products */,
@@ -141,6 +139,8 @@
 		965C06322084BF600001C6D3 /* uguide */ = {
 			isa = PBXGroup;
 			children = (
+				965C066E2084E8C00001C6D3 /* MapNavigationViewController.swift */,
+				965C06702084E9150001C6D3 /* BeaconNavigationViewController.swift */,
 				965C066A2084C8D00001C6D3 /* CourseViewController.swift */,
 				965C066C2084D3880001C6D3 /* AddCourseViewController.swift */,
 				965C06682084C2A20001C6D3 /* CourseTableViewCell.swift */,
