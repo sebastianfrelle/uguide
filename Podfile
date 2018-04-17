@@ -7,6 +7,7 @@ target 'uguide' do
 
   # Pods for uguide
   pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
   target 'uguideTests' do
     inherit! :search_paths
