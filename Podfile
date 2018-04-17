@@ -6,6 +6,7 @@ target 'uguide' do
   use_frameworks!
 
   # Pods for uguide
+  pod 'Firebase/Core'
 
   target 'uguideTests' do
     inherit! :search_paths
