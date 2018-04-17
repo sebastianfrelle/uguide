@@ -29,6 +29,7 @@
 		965C066D2084D3880001C6D3 /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C066C2084D3880001C6D3 /* AddCourseViewController.swift */; };
 		965C066F2084E8C00001C6D3 /* MapNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C066E2084E8C00001C6D3 /* MapNavigationViewController.swift */; };
 		965C06712084E9150001C6D3 /* BeaconNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06702084E9150001C6D3 /* BeaconNavigationViewController.swift */; };
+		965C067520867B250001C6D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C067420867B240001C6D3 /* GoogleService-Info.plist */; };
 		FA1227CC4036317549987277 /* Pods_uguide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3966A9B842895EE625666352 /* Pods_uguide.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		965C066C2084D3880001C6D3 /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
 		965C066E2084E8C00001C6D3 /* MapNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationViewController.swift; sourceTree = "<group>"; };
 		965C06702084E9150001C6D3 /* BeaconNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconNavigationViewController.swift; sourceTree = "<group>"; };
+		965C067420867B240001C6D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A95D39E07C9A54F6A832FFBA /* Pods-uguideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguideTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguideTests/Pods-uguideTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4366D2DD4DE9F945849DB76 /* Pods-uguideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguideTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguideTests/Pods-uguideTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 		965C06322084BF600001C6D3 /* uguide */ = {
 			isa = PBXGroup;
 			children = (
+				965C067420867B240001C6D3 /* GoogleService-Info.plist */,
 				965C066E2084E8C00001C6D3 /* MapNavigationViewController.swift */,
 				965C06702084E9150001C6D3 /* BeaconNavigationViewController.swift */,
 				965C066A2084C8D00001C6D3 /* CourseViewController.swift */,
@@ -192,6 +195,7 @@
 				965C062C2084BF600001C6D3 /* Sources */,
 				965C062D2084BF600001C6D3 /* Frameworks */,
 				965C062E2084BF600001C6D3 /* Resources */,
+				BD9614BFB507ADAC87F0A9B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -267,6 +271,7 @@
 				965C063E2084BF610001C6D3 /* LaunchScreen.storyboard in Resources */,
 				965C063B2084BF610001C6D3 /* Assets.xcassets in Resources */,
 				965C06392084BF600001C6D3 /* Main.storyboard in Resources */,
+				965C067520867B250001C6D3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +319,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD9614BFB507ADAC87F0A9B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -507,7 +532,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sebastian-frelle.uguide";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uguide.uguide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -526,7 +551,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sebastian-frelle.uguide";
+				PRODUCT_BUNDLE_IDENTIFIER = com.uguide.uguide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
