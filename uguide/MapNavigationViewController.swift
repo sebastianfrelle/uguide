@@ -13,8 +13,8 @@ import CoreLocation
 
 class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
-    let locationManager=CLLocationManager()
     @IBOutlet weak var mapView: GMSMapView!
+    let locationManager=CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         
