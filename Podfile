@@ -6,6 +6,7 @@ target 'uguide' do
   use_frameworks!
 	pod'GoogleMaps'
 	pod'GooglePlaces'
+	pod'GooglePlacePicker'
 
   # Pods for uguide
 
