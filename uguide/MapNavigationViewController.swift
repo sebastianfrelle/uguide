@@ -11,37 +11,36 @@ import GoogleMaps
 import MapKit
 import CoreLocation
 
-class MapNavigationViewController: UIViewController, CLLocationManagerDelegate {
+class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     let locationManager=CLLocationManager()
-    //var mapView = GMSMapView();
-    var camera = GMSCameraPosition();
     @IBOutlet weak var mapView: GMSMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            self.locationManager.delegate=self
-            self.locationManager.desiredAccuracy=kCLLocationAccuracyNearestTenMeters
-            self.locationManager.startUpdatingLocation()
-        }
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        mapView.delegate = self
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    guard status == .authorizedWhenInUse else {
+    return
+    }
+    locationManager.startUpdatingLocation()
+    mapView.isMyLocationEnabled = true
+    mapView.settings.myLocationButton = true
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("Locations = \(locValue.latitude) \(locValue.longitude)")
-        
-        camera=GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude , zoom: 14)
-        
-        mapView = GMSMapView.map(withFrame: .zero, camera: camera)
-        //self.view = mapView;
-        mapView.settings.myLocationButton=true
-        mapView.isMyLocationEnabled=true
-        //manager.stopUpdatingLocation()
+        guard let location = locations.first else {
+            return
+        }
+        print("Location = \(location.coordinate)")
+        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+        locationManager.stopUpdatingLocation()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
