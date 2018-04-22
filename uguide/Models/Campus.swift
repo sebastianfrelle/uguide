@@ -8,10 +8,12 @@
 
 import UIKit
 
-class Campus: Model {
+struct Campus: Model {
     var name: String
     
-    init(name: String) {
-        self.name = name
+    var dictionary: [String : Any] {
+        return [
+            "name": name,
+        ]
     }
 }

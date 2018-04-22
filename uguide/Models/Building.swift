@@ -8,12 +8,15 @@
 
 import UIKit
 
-class Building: Model {
+struct Building: Model {
     var name: String
     var floors: [Floor]
     
-    init(name: String, floors: [Floor] = [Floor]()) {
-        self.name = name
-        self.floors = floors
+    var dictionary: [String: Any] {
+        return [
+            "name": name,
+            "floors": floors,
+        ]
     }
 }
+
