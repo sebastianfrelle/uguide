@@ -369,13 +369,6 @@
                                     <constraint firstAttribute="width" constant="200" id="5Zf-lf-uDv"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-g4-Q3v">
-                                <rect key="frame" x="136" y="557" width="110" height="30"/>
-                                <state key="normal" title="Take me there!"/>
-                                <connections>
-                                    <segue destination="5aN-c8-mbP" kind="presentation" id="wmc-LL-8YA"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9wZ-oo-Bz1" userLabel="CourseLocation StackView">
                                 <rect key="frame" x="40" y="194" width="150" height="193"/>
                                 <subviews>
