@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6BA47533F91638123A06966A /* Pods_uguideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */; };
-		96241DDA208C89F800F46F10 /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96241DD9208C89F800F46F10 /* LocalCollection.swift */; };
 		965C06342084BF600001C6D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06332084BF600001C6D3 /* AppDelegate.swift */; };
 		965C06362084BF600001C6D3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06352084BF600001C6D3 /* AuthViewController.swift */; };
 		965C06392084BF600001C6D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965C06372084BF600001C6D3 /* Main.storyboard */; };
@@ -50,7 +49,6 @@
 		52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uguideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD282E6FD834038AA5DD720 /* Pods-uguide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.debug.xcconfig"; sourceTree = "<group>"; };
 		8FD133165D9F7FFC77936F86 /* Pods-uguide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.release.xcconfig"; sourceTree = "<group>"; };
-		96241DD9208C89F800F46F10 /* LocalCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
 		965C06302084BF600001C6D3 /* uguide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uguide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965C06332084BF600001C6D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		965C06352084BF600001C6D3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 		965C06272084BF600001C6D3 = {
 			isa = PBXGroup;
 			children = (
-				968C79F0208C8CB50047358E /* LocalCollection.swift */,
 				965C06322084BF600001C6D3 /* uguide */,
 				965C06472084BF610001C6D3 /* uguideTests */,
 				965C06312084BF600001C6D3 /* Products */,
@@ -176,7 +173,7 @@
 		965C06532084C0130001C6D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				96241DD9208C89F800F46F10 /* LocalCollection.swift */,
+				968C79F0208C8CB50047358E /* LocalCollection.swift */,
 				965C06542084C0130001C6D3 /* Building.swift */,
 				965C06552084C0130001C6D3 /* University.swift */,
 				965C06562084C0130001C6D3 /* Model.swift */,
@@ -202,6 +199,7 @@
 				965C062D2084BF600001C6D3 /* Frameworks */,
 				965C062E2084BF600001C6D3 /* Resources */,
 				BD9614BFB507ADAC87F0A9B8 /* [CP] Embed Pods Frameworks */,
+				EF05B3D4A3103C2B68735AF0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -334,9 +332,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -346,9 +346,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -359,6 +361,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF05B3D4A3103C2B68735AF0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -376,7 +400,6 @@
 				965C06712084E9150001C6D3 /* BeaconNavigationViewController.swift in Sources */,
 				965C065E2084C0130001C6D3 /* University.swift in Sources */,
 				965C065D2084C0130001C6D3 /* Building.swift in Sources */,
-				96241DDA208C89F800F46F10 /* LocalCollection.swift in Sources */,
 				965C06652084C0130001C6D3 /* Floor.swift in Sources */,
 				965C066D2084D3880001C6D3 /* AddCourseViewController.swift in Sources */,
 				965C06632084C0130001C6D3 /* Campus.swift in Sources */,

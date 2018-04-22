@@ -20,6 +20,18 @@ struct Course: Model {
             "courseLocation": courseLocation!.dictionary,
         ]
     }
+    
+    init?(name: String, id: String, campus: Campus, building: Building, room: Room) {
+        let courseLocation = CourseLocation(campus: campus, building: building, room: room)
+        
+        self.init(name: name, id: id, courseLocation: courseLocation)
+    }
+    
+    init(name: String, id: String, courseLocation: CourseLocation) {
+        self.name = name
+        self.id = id
+        self.courseLocation = courseLocation
+    }
 }
 
 extension Course: DocumentSerializable {

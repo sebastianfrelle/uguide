@@ -121,10 +121,10 @@ class CourseTableViewController: UITableViewController {
         
         let course = courses[indexPath.row]
         
-        cell.populate(course: course)
+//        cell.populate(course: course)
         
-//        cell.courseName.text = course.name
-//        cell.courseID.text = course.id
+        cell.courseName.text = course.name
+        cell.courseID.text = course.id
         
         return cell
     }
