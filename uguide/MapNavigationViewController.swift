@@ -10,12 +10,23 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 import GooglePlaces
+import Alamofire
+import SwiftyJSON
 
 class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
+    
     let locationManager=CLLocationManager()
     var placesClient: GMSPlacesClient!
+    
+    let placeID = "ChIJ__anOmNOUkYR86hP1LlgQic"
+    
+    var locationStart = CLLocation()
+    var didEndLocationSet = false
+    var locationEnd = CLLocation()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -26,7 +37,6 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     func lookUpPlaceID() {
-        let placeID = "ChIJ__anOmNOUkYR86hP1LlgQic"
         placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
         if let error = error {
             print("lookup place id query error: \(error.localizedDescription)")
@@ -37,18 +47,22 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
                 print("Place address \(String(describing: place.formattedAddress))")
                 print("Place placeID \(place.placeID)")
                 print("Place placeID \(place.coordinate)")
-                print("Place attributions \(String(describing: place.attributions))")
-                let position = place.coordinate
-                let marker = GMSMarker(position: position)
-                marker.title = "DTU Lyngby"
-                marker.snippet = "Bygning 302"
-                marker.map = self.mapView
+                //Sets end location coordinates
+                self.locationEnd = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+                self.didEndLocationSet = true
+                self.createMarker(titleMarker: place.name, latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
             }
             else {
-                print("No place details for \(placeID)")
+                print("No place details for \(self.placeID)")
             }
         })
-        
+    }
+    // MARK: Function to create marker
+    func createMarker(titleMarker: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(latitude, longitude)
+        marker.title = titleMarker
+        marker.map = mapView
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -61,12 +75,52 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
+        guard let locationStart = locations.first else {
             return
         }
-        print("Location = \(location.coordinate)")
-        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 14, bearing: 0, viewingAngle: 0)
-        locationManager.stopUpdatingLocation()
+        print("Location = \(locationStart.coordinate)")
+        //Sets the start location variable
+        mapView.camera = GMSCameraPosition(target: locationStart.coordinate, zoom: 14, bearing: 0, viewingAngle: 0)
+        
+        if didEndLocationSet {
+            drawPath(startLocation: locationStart, endLocation: locationEnd)
+            locationManager.stopUpdatingLocation()
+        }
+    }
+    
+    //MARK: - this is function for create direction path, from start location to desination location
+    func drawPath(startLocation: CLLocation, endLocation: CLLocation)
+    {
+        print(startLocation.coordinate, "Start Location")
+        print(endLocation.coordinate, "End Location")
+        let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
+        let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
+        
+        
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+        
+        Alamofire.request(url).responseJSON { response in
+            
+            print(response.request as Any)  // original URL request
+            print(response.response as Any) // HTTP URL response
+            print(response.data as Any)     // server data
+            print(response.result as Any)   // result of response serialization
+            
+            let json = try? JSON(data: response.data!)
+            let routes = json!["routes"].arrayValue
+            print(routes)
+        
+            for route in routes
+            {
+                let routeOverviewPolyline = route["overview_polyline"].dictionary
+                let points = routeOverviewPolyline?["points"]?.stringValue
+                let path = GMSPath.init(fromEncodedPath: points!)
+                let polyline = GMSPolyline.init(path: path)
+                polyline.strokeWidth = 4
+                polyline.strokeColor = UIColor.red
+                polyline.map = self.mapView
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,8 @@ target 'uguide' do
 	pod'GoogleMaps'
 	pod'GooglePlaces'
 	pod'GooglePlacePicker'
+	pod'Alamofire'
+	pod'SwiftyJSON'
 
   # Pods for uguide
 
