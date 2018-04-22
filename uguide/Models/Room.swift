@@ -8,12 +8,14 @@
 
 import UIKit
 
-class Room: Model {
+struct Room: Model {
     var name: String
     var beacons: [Beacon]
     
-    init(name: String, beacons: [Beacon] = [Beacon]()) {
-        self.name = name
-        self.beacons = beacons
+    var dictionary: [String : Any] {
+        return [
+            "name": name,
+            "beacons": beacons,
+        ]
     }
 }

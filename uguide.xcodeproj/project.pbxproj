@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6BA47533F91638123A06966A /* Pods_uguideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */; };
+		96241DDA208C89F800F46F10 /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96241DD9208C89F800F46F10 /* LocalCollection.swift */; };
 		965C06342084BF600001C6D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06332084BF600001C6D3 /* AppDelegate.swift */; };
 		965C06362084BF600001C6D3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06352084BF600001C6D3 /* AuthViewController.swift */; };
 		965C06392084BF600001C6D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965C06372084BF600001C6D3 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		965C066F2084E8C00001C6D3 /* MapNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C066E2084E8C00001C6D3 /* MapNavigationViewController.swift */; };
 		965C06712084E9150001C6D3 /* BeaconNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06702084E9150001C6D3 /* BeaconNavigationViewController.swift */; };
 		965C067520867B250001C6D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C067420867B240001C6D3 /* GoogleService-Info.plist */; };
+		968C79F1208C8CB50047358E /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C79F0208C8CB50047358E /* LocalCollection.swift */; };
 		FA1227CC4036317549987277 /* Pods_uguide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3966A9B842895EE625666352 /* Pods_uguide.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,7 @@
 		52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uguideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD282E6FD834038AA5DD720 /* Pods-uguide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.debug.xcconfig"; sourceTree = "<group>"; };
 		8FD133165D9F7FFC77936F86 /* Pods-uguide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.release.xcconfig"; sourceTree = "<group>"; };
+		96241DD9208C89F800F46F10 /* LocalCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
 		965C06302084BF600001C6D3 /* uguide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uguide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965C06332084BF600001C6D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		965C06352084BF600001C6D3 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 		965C066E2084E8C00001C6D3 /* MapNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationViewController.swift; sourceTree = "<group>"; };
 		965C06702084E9150001C6D3 /* BeaconNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconNavigationViewController.swift; sourceTree = "<group>"; };
 		965C067420867B240001C6D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		968C79F0208C8CB50047358E /* LocalCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
 		A95D39E07C9A54F6A832FFBA /* Pods-uguideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguideTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguideTests/Pods-uguideTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4366D2DD4DE9F945849DB76 /* Pods-uguideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguideTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguideTests/Pods-uguideTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,7 @@
 		965C06272084BF600001C6D3 = {
 			isa = PBXGroup;
 			children = (
+				968C79F0208C8CB50047358E /* LocalCollection.swift */,
 				965C06322084BF600001C6D3 /* uguide */,
 				965C06472084BF610001C6D3 /* uguideTests */,
 				965C06312084BF600001C6D3 /* Products */,
@@ -171,6 +176,7 @@
 		965C06532084C0130001C6D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				96241DD9208C89F800F46F10 /* LocalCollection.swift */,
 				965C06542084C0130001C6D3 /* Building.swift */,
 				965C06552084C0130001C6D3 /* University.swift */,
 				965C06562084C0130001C6D3 /* Model.swift */,
@@ -363,12 +369,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				965C065F2084C0130001C6D3 /* Model.swift in Sources */,
+				968C79F1208C8CB50047358E /* LocalCollection.swift in Sources */,
 				965C06362084BF600001C6D3 /* AuthViewController.swift in Sources */,
 				965C06642084C0130001C6D3 /* Course.swift in Sources */,
 				965C06622084C0130001C6D3 /* Room.swift in Sources */,
 				965C06712084E9150001C6D3 /* BeaconNavigationViewController.swift in Sources */,
 				965C065E2084C0130001C6D3 /* University.swift in Sources */,
 				965C065D2084C0130001C6D3 /* Building.swift in Sources */,
+				96241DDA208C89F800F46F10 /* LocalCollection.swift in Sources */,
 				965C06652084C0130001C6D3 /* Floor.swift in Sources */,
 				965C066D2084D3880001C6D3 /* AddCourseViewController.swift in Sources */,
 				965C06632084C0130001C6D3 /* Campus.swift in Sources */,

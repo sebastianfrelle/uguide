@@ -8,12 +8,14 @@
 
 import UIKit
 
-class University: Model {
+struct University: Model {
     var name: String
     var courses: [Course]?
     
-    init(name: String, courses: [Course] = [Course]()) {
-        self.name = name
-//        Initialize course array
+    var dictionary: [String: Any] {
+        return [
+            "name": name,
+            "courses": courses,
+        ]
     }
 }

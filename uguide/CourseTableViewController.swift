@@ -9,14 +9,67 @@
 import UIKit
 import os.log
 
+import FirebaseFirestore
+
 class CourseTableViewController: UITableViewController {
     
     //MARK: Properties
-    var courses = [Course]()
+    private var courses: [Course] = []
+    private var documents: [DocumentSnapshot] = []
+    
+    private var query: Query? {
+        didSet {
+            if let listener = listener {
+                listener.remove()
+                observeQuery()
+            }
+        }
+    }
+    
+    private var listener: ListenerRegistration?
+    
+    private func observeQuery() {
+        guard let query = query else { return }
+        stopObserving()
+        
+        // Display data from Firestore, part one
+        listener = query.addSnapshotListener { [unowned self] (snapshot, error) in
+            guard let snapshot = snapshot else {
+                print("Error fetching snapshot results: \(error!)")
+                return
+            }
+            
+            let models = snapshot.documents.map { (document) -> Course in
+                if let model = Course(dictionary: document.data()) {
+                    return model
+                } else {
+                    // Don't use fatalError here in a real app
+                    fatalError("Unable to initialize type \(Course.self) with dictionary \(document.data())")
+                }
+            }
+            
+            self.courses = models
+            self.documents = snapshot.documents
+            
+            self.tableView.reloadData()
+        }
+    }
+    
+    func stopObserving() {
+        listener?.remove()
+    }
+    
+    func baseQuery() -> Query {
+        return Firestore.firestore().collection("courses").limit(to: 50)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        query = baseQuery()
+        
         // Load the sample data
         loadCourses()
         // Uncomment the following line to preserve selection between presentations
@@ -24,6 +77,23 @@ class CourseTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        observeQuery()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopObserving()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,8 +121,10 @@ class CourseTableViewController: UITableViewController {
         
         let course = courses[indexPath.row]
         
-        cell.courseName.text = course.name
-        cell.courseID.text = course.id
+        cell.populate(course: course)
+        
+//        cell.courseName.text = course.name
+//        cell.courseID.text = course.id
         
         return cell
     }

@@ -8,17 +8,14 @@
 
 import UIKit
 
-class User: Model {
+struct User: Model {
     var name: String
     var courses = [String]()
     
-    init(name: String, courses: [String]) {
-        self.name = name
-        self.courses = courses
+    var dictionary: [String : Any] {
+        return [
+            "name": name,
+            "courses": courses,
+        ]
     }
-    
 }
-
-
-
-

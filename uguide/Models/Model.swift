@@ -8,10 +8,6 @@
 
 import UIKit
 
-class Model {
-    var uid: String
-    
-    init() {
-        self.uid = UUID().uuidString
-    }
+protocol Model {
+    var dictionary: [String: Any] { get }
 }
