@@ -17,18 +17,18 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     
     @IBOutlet weak var mapView: GMSMapView!
     
-    let locationManager=CLLocationManager()
+    let locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
     
-    let placeID = "ChIJ__anOmNOUkYR86hP1LlgQic"
+    var placeId: String?
     
     var locationStart = CLLocation()
     var didEndLocationSet = false
     var locationEnd = CLLocation()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         mapView.delegate = self
@@ -37,23 +37,29 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     func lookUpPlaceID() {
-        placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
-        if let error = error {
-            print("lookup place id query error: \(error.localizedDescription)")
-            return
+        guard let placeId = placeId else {
+            fatalError("No placeId set")
         }
+        
+        placesClient.lookUpPlaceID(placeId, callback: { (place, error) -> Void in
+            if let error = error {
+                print("lookup place id query error: \(error.localizedDescription)")
+                return
+            }
             if let place = place {
                 print("Place name \(place.name)")
                 print("Place address \(String(describing: place.formattedAddress))")
                 print("Place placeID \(place.placeID)")
-                print("Place placeID \(place.coordinate)")
-                //Sets end location coordinates
+                print("Place coordinate \(place.coordinate)")
+                
+                // Sets end location coordinates
                 self.locationEnd = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
                 self.didEndLocationSet = true
+                
                 self.createMarker(titleMarker: place.name, latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
             }
             else {
-                print("No place details for \(self.placeID)")
+                print("No place details for \(placeId)")
             }
         })
     }
@@ -66,12 +72,12 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    guard status == .authorizedWhenInUse else {
-    return
-    }
-    locationManager.startUpdatingLocation()
-    mapView.isMyLocationEnabled = true
-    mapView.settings.myLocationButton = true
+        guard status == .authorizedWhenInUse else {
+            return
+        }
+        locationManager.startUpdatingLocation()
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -109,7 +115,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
             let json = try? JSON(data: response.data!)
             let routes = json!["routes"].arrayValue
             print(routes)
-        
+            
             for route in routes
             {
                 let routeOverviewPolyline = route["overview_polyline"].dictionary
@@ -132,5 +138,5 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
-
+    
 }

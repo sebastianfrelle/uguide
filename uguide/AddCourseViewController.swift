@@ -60,11 +60,8 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         let building = Building(name: buildingField.text!)
         let room = Room(name: roomField.text!)
         
-        course = Course(name: name,
-                        id: id,
-                        campus: campus,
-                        building: building,
-                        room: room)
+//        course = Course(name: name,
+//                        id: id)
     }
     
     //MARK: Private methods

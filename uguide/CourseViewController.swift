@@ -22,24 +22,21 @@ class CourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let course = course {
-            // Set navigation bar title
-            title = "\(course.id): \(course.name)"
-            
-            courseName.text = course.name
-            courseID.text = course.id
-            
-            if let courseLocation = course.courseLocation {
-                campus.text = courseLocation.campus.name
-                building.text = courseLocation.building.name
-                room.text = courseLocation.room.name
-            }
+        guard let course = course else {
+            fatalError("No course set")
         }
         
-
-        // Do any additional setup after loading the view.
+        // Set navigation bar title
+        title = "\(course.id): \(course.name)"
+        
+        courseName.text = course.name
+        courseID.text = course.id
+        
+        campus.text = course.courseLocation.campus
+        building.text = course.courseLocation.building
+        room.text = course.courseLocation.room
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,12 +48,29 @@ class CourseViewController: UIViewController {
         print("Unwound to course view 🇸🇪")
         print(sender)
     }
-    /*
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        let segueId = segue.identifier ?? ""
+        switch (segueId) {
+        case "NavigateToCourse":
+            guard let destinationViewController = segue.destination as? UINavigationController else {
+                fatalError("Expected destination UINavigationController; got \(segue.destination)")
+            }
+            
+            guard let mapViewController = destinationViewController.viewControllers.first as? MapNavigationViewController else {
+                fatalError("First VC of Nav View Controller \(destinationViewController) is not a MapNavigationViewController")
+            }
+            
+            guard let placeId = course?.placeId else {
+                fatalError("course not set")
+            }
+            
+            mapViewController.placeId = placeId
+        default:
+            fatalError("Segue with unknown identifier: \(segueId)")
+        }
     }
-    */
 }

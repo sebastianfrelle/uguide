@@ -71,7 +71,8 @@ class CourseTableViewController: UITableViewController {
         query = baseQuery()
         
         // Load the sample data
-        loadCourses()
+//        loadCourses()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -121,10 +122,7 @@ class CourseTableViewController: UITableViewController {
         
         let course = courses[indexPath.row]
         
-//        cell.populate(course: course)
-        
-        cell.courseName.text = course.name
-        cell.courseID.text = course.id
+        cell.populate(course: course)
         
         return cell
     }
@@ -212,38 +210,38 @@ class CourseTableViewController: UITableViewController {
     
     //MARK: Dummy data
     
-    private func loadCourses() {
-        // Load photos before initializing meals
-        
-        let campusLyngby = Campus(name: "Lyngby")
-        let building_324 = Building(name: "324")
-        let room_23 = Room(name: "23")
-        
-        guard let course1 = Course(name: "IntroStat",
-                                   id: "02323",
-                                   campus: campusLyngby,
-                                   building: building_324,
-                                   room: room_23) else {
-            fatalError("Unable to instantiate course1")
-        }
-        
-        guard let course2 = Course(name: "Algoritmer og datastrukturer",
-                                   id: "02324",
-                                   campus: campusLyngby,
-                                   building: building_324,
-                                   room: room_23) else {
-            fatalError("Unable to instantiate course2")
-        }
-        
-        guard let course3 = Course(name: "Matematik 1",
-                                   id: "02325",
-                                   campus: campusLyngby,
-                                   building: building_324,
-                                   room: room_23) else {
-            fatalError("Unable to instantiate course3")
-        }
-        
-        courses += [course1, course2, course3]
-    }
+//    private func loadCourses() {
+//        // Load photos before initializing meals
+//
+//        let campusLyngby = Campus(name: "Lyngby")
+//        let building_324 = Building(name: "324")
+//        let room_23 = Room(name: "23")
+//
+//        guard let course1 = Course(name: "IntroStat",
+//                                   id: "02323",
+//                                   campus: campusLyngby,
+//                                   building: building_324,
+//                                   room: room_23) else {
+//            fatalError("Unable to instantiate course1")
+//        }
+//
+//        guard let course2 = Course(name: "Algoritmer og datastrukturer",
+//                                   id: "02324",
+//                                   campus: campusLyngby,
+//                                   building: building_324,
+//                                   room: room_23) else {
+//            fatalError("Unable to instantiate course2")
+//        }
+//
+//        guard let course3 = Course(name: "Matematik 1",
+//                                   id: "02325",
+//                                   campus: campusLyngby,
+//                                   building: building_324,
+//                                   room: room_23) else {
+//            fatalError("Unable to instantiate course3")
+//        }
+//
+//        courses += [course1, course2, course3]
+//    }
 
 }
