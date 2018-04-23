@@ -67,8 +67,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outletCollection property="UILabels" destination="xyc-Uh-Y8S" collectionClass="NSMutableArray" id="S9I-US-CUy"/>
-                        <outletCollection property="UILabels" destination="vRZ-Wk-S63" collectionClass="NSMutableArray" id="NoB-DJ-sGd"/>
+                        <outletCollection property="UILabel" destination="xyc-Uh-Y8S" collectionClass="NSMutableArray" id="F4T-Rd-eQv"/>
+                        <outletCollection property="UILabel" destination="vRZ-Wk-S63" collectionClass="NSMutableArray" id="eGL-FV-3z6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

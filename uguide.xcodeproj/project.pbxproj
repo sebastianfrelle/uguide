@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6BA47533F91638123A06966A /* Pods_uguideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */; };
+		89FF1257208DECAB003DA6FC /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89FF1256208DECAB003DA6FC /* Lato-Regular.ttf */; };
+		89FF125B208DF0BD003DA6FC /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89FF125A208DF0BC003DA6FC /* Lato-Heavy.ttf */; };
 		965C06342084BF600001C6D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06332084BF600001C6D3 /* AppDelegate.swift */; };
 		965C06362084BF600001C6D3 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06352084BF600001C6D3 /* AuthViewController.swift */; };
 		965C06392084BF600001C6D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965C06372084BF600001C6D3 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		3966A9B842895EE625666352 /* Pods_uguide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uguide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uguideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD282E6FD834038AA5DD720 /* Pods-uguide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.debug.xcconfig"; sourceTree = "<group>"; };
+		89FF1256208DECAB003DA6FC /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		89FF125A208DF0BC003DA6FC /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
 		8FD133165D9F7FFC77936F86 /* Pods-uguide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.release.xcconfig"; sourceTree = "<group>"; };
 		965C06302084BF600001C6D3 /* uguide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uguide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965C06332084BF600001C6D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +115,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		89FF1255208DEC95003DA6FC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				89FF125A208DF0BC003DA6FC /* Lato-Heavy.ttf */,
+				89FF1256208DECAB003DA6FC /* Lato-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		8AC92C5DF6A4CDFC62F8755D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				965C06322084BF600001C6D3 /* uguide */,
-				965C06472084BF610001C6D3 /* uguideTests */,
 				965C06312084BF600001C6D3 /* Products */,
 				0993157BEFC8B64FC7354CA6 /* Pods */,
 				8AC92C5DF6A4CDFC62F8755D /* Frameworks */,
@@ -156,6 +168,8 @@
 				965C063A2084BF610001C6D3 /* Assets.xcassets */,
 				965C063C2084BF610001C6D3 /* LaunchScreen.storyboard */,
 				965C063F2084BF610001C6D3 /* Info.plist */,
+				89FF1255208DEC95003DA6FC /* fonts */,
+				965C06472084BF610001C6D3 /* uguideTests */,
 				965C06532084C0130001C6D3 /* Models */,
 			);
 			path = uguide;
@@ -243,6 +257,11 @@
 				TargetAttributes = {
 					965C062F2084BF600001C6D3 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					965C06432084BF610001C6D3 = {
 						CreatedOnToolsVersion = 9.3;
@@ -274,8 +293,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89FF125B208DF0BD003DA6FC /* Lato-Heavy.ttf in Resources */,
 				965C063E2084BF610001C6D3 /* LaunchScreen.storyboard in Resources */,
 				965C063B2084BF610001C6D3 /* Assets.xcassets in Resources */,
+				89FF1257208DECAB003DA6FC /* Lato-Regular.ttf in Resources */,
 				965C06392084BF600001C6D3 /* Main.storyboard in Resources */,
 				965C067520867B250001C6D3 /* GoogleService-Info.plist in Resources */,
 			);
@@ -366,6 +387,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${PODS_ROOT}/EstimoteBluetoothScanning/EstimoteBluetoothScanning/EstimoteBluetoothScanning.framework",
+				"${PODS_ROOT}/EstimoteProximitySDK/EstimoteProximitySDK/EstimoteProximitySDK.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -380,6 +403,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EstimoteBluetoothScanning.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EstimoteProximitySDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
