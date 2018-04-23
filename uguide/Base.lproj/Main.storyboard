@@ -540,15 +540,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map view" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmg-KV-ZXM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="424"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgS-cG-RiY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="479"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IndoorNavigation" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-MS-B1X">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="479"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IndoorNavigation" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-Nq-Xkm">
+                                        <rect key="frame" x="229" y="264" width="124" height="165"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gKO-MS-B1X" firstAttribute="centerX" secondItem="pgS-cG-RiY" secondAttribute="centerX" id="CT1-FT-Wf8"/>
+                                    <constraint firstItem="gKO-MS-B1X" firstAttribute="centerY" secondItem="pgS-cG-RiY" secondAttribute="centerY" id="QVq-yp-x57"/>
+                                    <constraint firstItem="gKO-MS-B1X" firstAttribute="leading" secondItem="pgS-cG-RiY" secondAttribute="leading" id="Xa9-BE-BZF"/>
+                                    <constraint firstItem="gKO-MS-B1X" firstAttribute="top" secondItem="pgS-cG-RiY" secondAttribute="top" id="XrD-iL-Mbs"/>
+                                    <constraint firstAttribute="bottom" secondItem="gKO-MS-B1X" secondAttribute="bottom" id="wGp-Dm-r9f"/>
+                                    <constraint firstAttribute="trailing" secondItem="gKO-MS-B1X" secondAttribute="trailing" id="yKb-g7-5tQ"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yUY-q6-uwM" firstAttribute="bottom" secondItem="pgS-cG-RiY" secondAttribute="bottom" constant="124" id="Vdb-6N-hhI"/>
+                            <constraint firstAttribute="trailing" secondItem="pgS-cG-RiY" secondAttribute="trailing" id="VgK-zY-cFl"/>
+                            <constraint firstItem="pgS-cG-RiY" firstAttribute="top" secondItem="yUY-q6-uwM" secondAttribute="top" id="YRz-FL-mje"/>
+                            <constraint firstItem="pgS-cG-RiY" firstAttribute="leading" secondItem="OEH-iE-Jxh" secondAttribute="leading" id="pKg-Km-qq4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yUY-q6-uwM"/>
                     </view>
                     <navigationItem key="navigationItem" title="Find Room" id="OBi-5c-0FM">
@@ -558,11 +577,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="gKO-MS-B1X" id="IiB-5I-JG9"/>
+                        <outlet property="nestedImageView" destination="IgQ-Nq-Xkm" id="TAB-Vm-57A"/>
+                        <outlet property="scrollView" destination="pgS-cG-RiY" id="B9O-St-QWg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzu-IM-VRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="gVv-Uk-W3e" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5097" y="1030"/>
+            <point key="canvasLocation" x="5096.8000000000002" y="1029.5352323838081"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ffZ-Tx-7pE">
@@ -619,4 +643,7 @@
             <point key="canvasLocation" x="3389.5999999999999" y="1029.5352323838081"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IndoorNavigation" width="250" height="314"/>
+    </resources>
 </document>
