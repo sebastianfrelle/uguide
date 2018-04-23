@@ -9,26 +9,35 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import EstimoteProximitySDK
 
 var GoogleMapsApiKey = "AIzaSyBoomyx6d-pqbuAANE4Bw7vUU1p_959evM"
 var GooglePlacesApiKey = "AIzaSyBB5HYutW3zGi6nih4aqygFteAF5Jl3Xyc"
+var EstimoteAppId = "sebastian-frelle-gmail-com-5ve"
+var EstimoteAppToken = "604d08ce391572487e3d0c2395562cca"
 
 import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // 1. Add a property to hold the Proximity Observer
+    
     var window: UIWindow?
-
+    var proximityObserver: EPXProximityObserver!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         // Firebase setup
         FirebaseApp.configure()
         
+        // Google service setup
         GMSServices.provideAPIKey(GoogleMapsApiKey)
         GMSPlacesClient.provideAPIKey(GooglePlacesApiKey)
+        
+        // Estimote credentials
+        //let cloudCredentials = EPXCloudCredentials(appID: EstimoteAppId, appToken: EstimoteAppToken)
+        
         return true
     }
 

@@ -12,6 +12,7 @@ import CoreLocation
 import GooglePlaces
 import Alamofire
 import SwiftyJSON
+import EstimoteProximitySDK
 
 class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
@@ -19,6 +20,9 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     
     let locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
+    var proximityObserver: EPXProximityObserver!
+    var EstimoteAppId = "sebastian-frelle-gmail-com-5ve"
+    var EstimoteAppToken = "604d08ce391572487e3d0c2395562cca"
     
     var placeId: String?
     
@@ -103,7 +107,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
         
         
-        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=walking"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -137,6 +141,27 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     // MARK: - Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
+    }
+    
+    func setUpBeaconObserver() {
+        
+        let cloudCredentials = EPXCloudCredentials(appID: EstimoteAppId, appToken: EstimoteAppToken)
+        self.proximityObserver = EPXProximityObserver(
+            credentials: cloudCredentials,
+            errorBlock: { error in
+                print("proximity observer error: \(error)")
+        })
+        
+        let beacon = EPXProximityZone(
+            range: EPXProximityRange(desiredMeanTriggerDistance: 2.0)!,
+            attachmentKey: "room", attachmentValue: "Orange Rounded Table")
+        beacon.onEnterAction = { _ in
+            
+            
+        }
+        beacon.onExitAction = { _ in print("Colder...") }
+        
+        self.proximityObserver.startObserving([beacon])
     }
     
 }
