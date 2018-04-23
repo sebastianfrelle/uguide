@@ -12,6 +12,7 @@ target 'uguide' do
 
   # Pods for uguide
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
 
   target 'uguideTests' do
