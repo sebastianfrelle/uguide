@@ -11,15 +11,18 @@ import UIKit
 class CourseViewController: UIViewController {
     //MARK: Properties
     var course: Course?
+    
+    //MARK: Properties for styling
 
+    @IBOutlet var LabelsStyling: [UILabel]!
     @IBOutlet weak var courseName: UILabel!
     @IBOutlet weak var courseID: UILabel!
-
     @IBOutlet weak var campus: UILabel!
     @IBOutlet weak var building: UILabel!
     @IBOutlet weak var room: UILabel!
     
     override func viewDidLoad() {
+        styleLabels()
         super.viewDidLoad()
         
         guard let course = course else {
@@ -35,6 +38,12 @@ class CourseViewController: UIViewController {
         campus.text = course.courseLocation.campus
         building.text = course.courseLocation.building
         room.text = course.courseLocation.room
+    }
+    
+    func styleLabels() {
+        for UILabel in LabelsStyling {
+            UILabel.font = UIFont.boldSystemFont(ofSize: UILabel.font.pointSize)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,4 +82,5 @@ class CourseViewController: UIViewController {
             fatalError("Segue with unknown identifier: \(segueId)")
         }
     }
+    
 }
