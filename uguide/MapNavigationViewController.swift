@@ -32,7 +32,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //setUpBeaconObserver()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         mapView.delegate = self
@@ -145,23 +145,6 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     
     func setUpBeaconObserver() {
         
-        let cloudCredentials = EPXCloudCredentials(appID: EstimoteAppId, appToken: EstimoteAppToken)
-        self.proximityObserver = EPXProximityObserver(
-            credentials: cloudCredentials,
-            errorBlock: { error in
-                print("proximity observer error: \(error)")
-        })
-        
-        let beacon = EPXProximityZone(
-            range: EPXProximityRange(desiredMeanTriggerDistance: 2.0)!,
-            attachmentKey: "room", attachmentValue: "Orange Rounded Table")
-        beacon.onEnterAction = { _ in
-            
-            
-        }
-        beacon.onExitAction = { _ in print("Colder...") }
-        
-        self.proximityObserver.startObserving([beacon])
     }
     
 }

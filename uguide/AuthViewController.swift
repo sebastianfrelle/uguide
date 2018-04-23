@@ -5,9 +5,8 @@ import FirebaseAuth
 
 
 class AuthViewController: UIViewController {
-
+    
     @IBOutlet var Labels: [UILabel]!
-
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -32,6 +31,8 @@ class AuthViewController: UIViewController {
     func setUpUserInterface() {
         UILabel.appearance().font = UIFont(name: "Lato-Regular", size: 16)
         UITextView.appearance().font = UIFont(name: "Lato-Regular", size: 14)
+        usernameField.text = "hanshansen@mockmail.com"
+        passwordField.text = "hanshansen"
         loginButton.layer.cornerRadius = 6
     }
 

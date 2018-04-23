@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -20,35 +25,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xfA-9h-UdG">
-                                <rect key="frame" x="87.5" y="100" width="200" height="216"/>
+                                <rect key="frame" x="87.5" y="100" width="200" height="189"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyc-Uh-Y8S" userLabel="Username">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dOy-q2-Z6f">
-                                        <rect key="frame" x="0.0" y="43" width="200" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRZ-Wk-S63" userLabel="Password">
-                                        <rect key="frame" x="0.0" y="93" width="200" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X10-Ru-oia">
-                                        <rect key="frame" x="0.0" y="136" width="200" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="V8o-4L-Fr5">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="58"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyc-Uh-Y8S" userLabel="Username">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dOy-q2-Z6f">
+                                                <rect key="frame" x="0.0" y="28" width="200" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ub2-ao-f8b">
+                                        <rect key="frame" x="0.0" y="78" width="200" height="58"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRZ-Wk-S63" userLabel="Password">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X10-Ru-oia">
+                                                <rect key="frame" x="0.0" y="28" width="200" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLi-o7-xbN">
-                                        <rect key="frame" x="0.0" y="186" width="200" height="30"/>
-                                        <state key="normal" title="Login"/>
+                                        <rect key="frame" x="0.0" y="156" width="200" height="33"/>
+                                        <color key="backgroundColor" red="0.12409094721078873" green="0.38142338395118713" blue="0.94003522396087646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="didTapLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="afZ-8x-rHz"/>
                                         </connections>
@@ -70,8 +89,8 @@
                         <outlet property="loginButton" destination="TLi-o7-xbN" id="Fh3-5b-MyT"/>
                         <outlet property="passwordField" destination="X10-Ru-oia" id="ZPD-Rq-N9u"/>
                         <outlet property="usernameField" destination="dOy-q2-Z6f" id="Y2v-2P-RYT"/>
-                        <outletCollection property="UILabels" destination="xyc-Uh-Y8S" collectionClass="NSMutableArray" id="S9I-US-CUy"/>
-                        <outletCollection property="UILabels" destination="vRZ-Wk-S63" collectionClass="NSMutableArray" id="NoB-DJ-sGd"/>
+                        <outletCollection property="Labels" destination="xyc-Uh-Y8S" collectionClass="NSMutableArray" id="WyZ-19-IO5"/>
+                        <outletCollection property="Labels" destination="vRZ-Wk-S63" collectionClass="NSMutableArray" id="K7E-FK-evE"/>
                         <segue destination="ZHl-hv-oiB" kind="show" identifier="ShowOnSuccessfulLogin" id="cn8-o1-OYS"/>
                     </connections>
                 </viewController>
@@ -385,13 +404,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="LNK-00-HcS"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-g4-Q3v">
-                                <rect key="frame" x="136" y="557" width="102" height="30"/>
-                                <state key="normal" title="Take me there!"/>
-                                <connections>
-                                    <segue destination="5aN-c8-mbP" kind="presentation" identifier="NavigateToCourse" id="wmc-LL-8YA"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9wZ-oo-Bz1" userLabel="Courselocation Stackview">
                                 <rect key="frame" x="40" y="276" width="150" height="173"/>
                                 <subviews>
@@ -466,15 +478,30 @@
                                     <constraint firstAttribute="width" constant="150" id="a46-MY-D1T"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8M-g4-Q3v">
+                                <rect key="frame" x="87" y="554" width="200" height="33"/>
+                                <color key="backgroundColor" red="0.17723566041325944" green="0.38928819503689682" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="1aH-dB-s2J"/>
+                                    <constraint firstAttribute="width" constant="200" id="MYv-EB-cNN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <state key="normal" title="Take me there!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5aN-c8-mbP" kind="presentation" identifier="NavigateToCourse" id="wmc-LL-8YA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Boc-Uk-MxB" firstAttribute="top" secondItem="0VY-hf-Tdk" secondAttribute="top" constant="30" id="Jlz-Om-Hdz"/>
+                            <constraint firstItem="V8M-g4-Q3v" firstAttribute="centerX" secondItem="0VY-hf-Tdk" secondAttribute="centerX" id="MLp-bp-cOA"/>
                             <constraint firstItem="9wZ-oo-Bz1" firstAttribute="leading" secondItem="0VY-hf-Tdk" secondAttribute="leading" constant="40" id="PYA-sB-JaV"/>
                             <constraint firstItem="Boc-Uk-MxB" firstAttribute="leading" secondItem="0VY-hf-Tdk" secondAttribute="leading" constant="20" id="RDv-Qe-niw"/>
                             <constraint firstItem="9wZ-oo-Bz1" firstAttribute="top" secondItem="Boc-Uk-MxB" secondAttribute="bottom" constant="20" id="dNn-F3-tRc"/>
                             <constraint firstItem="0VY-hf-Tdk" firstAttribute="bottom" secondItem="V8M-g4-Q3v" secondAttribute="bottom" constant="80" id="sL8-j6-T9s"/>
-                            <constraint firstItem="V8M-g4-Q3v" firstAttribute="centerX" secondItem="0VY-hf-Tdk" secondAttribute="centerX" id="v2M-Jy-Lsz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0VY-hf-Tdk"/>
                     </view>
@@ -484,11 +511,7 @@
                         <outlet property="courseID" destination="dKA-yQ-xnO" id="5YM-HD-zxD"/>
                         <outlet property="courseName" destination="SMI-6v-oyr" id="Haz-f9-qNu"/>
                         <outlet property="room" destination="MF0-aV-OoX" id="Eod-aa-xPf"/>
-                        <outletCollection property="LabelsStyling" destination="FHF-UF-K4W" collectionClass="NSMutableArray" id="B9B-HT-R0D"/>
-                        <outletCollection property="LabelsStyling" destination="8T3-OZ-d7z" collectionClass="NSMutableArray" id="eHv-Td-65K"/>
-                        <outletCollection property="LabelsStyling" destination="wuA-Df-l2E" collectionClass="NSMutableArray" id="Lg4-7v-D1N"/>
-                        <outletCollection property="LabelsStyling" destination="iFd-gf-Srf" collectionClass="NSMutableArray" id="BAH-hq-1kQ"/>
-                        <outletCollection property="LabelsStyling" destination="jXC-be-JBD" collectionClass="NSMutableArray" id="ncy-r0-Rkf"/>
+                        <outlet property="takeMeThereBtn" destination="V8M-g4-Q3v" id="tqF-dI-j1z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apf-lx-SXr" userLabel="First Responder" sceneMemberID="firstResponder"/>

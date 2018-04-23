@@ -35,8 +35,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(GoogleMapsApiKey)
         GMSPlacesClient.provideAPIKey(GooglePlacesApiKey)
         
-        // Estimote credentials
-        //let cloudCredentials = EPXCloudCredentials(appID: EstimoteAppId, appToken: EstimoteAppToken)
+        // Estimote credentialslet
+        let cloudCredentials = EPXCloudCredentials(appID: EstimoteAppId, appToken: EstimoteAppToken)
+        self.proximityObserver = EPXProximityObserver(
+            credentials: cloudCredentials,
+            errorBlock: { error in
+                print("proximity observer error: \(error)")
+        })
+        
+        let beacon = EPXProximityZone(
+            range: EPXProximityRange(desiredMeanTriggerDistance: 10.0)!,
+            attachmentKey: "room", attachmentValue: "Orange Rounded Table")
+        beacon.onEnterAction = { _ in
+            
+            
+        }
+        beacon.onExitAction = { _ in print("Colder...") }
+        
+        self.proximityObserver.startObserving([beacon])
         
         return true
     }

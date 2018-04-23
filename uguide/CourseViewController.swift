@@ -18,10 +18,11 @@ class CourseViewController: UIViewController {
     @IBOutlet weak var campus: UILabel!
     @IBOutlet weak var building: UILabel!
     @IBOutlet weak var room: UILabel!
+    @IBOutlet weak var takeMeThereBtn: UIButton!
     
     override func viewDidLoad() {
-        //styleLabels()
         super.viewDidLoad()
+        takeMeThereBtn.layer.cornerRadius = 6
         
         guard let course = course else {
             fatalError("No course set")

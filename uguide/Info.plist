@@ -4,8 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Lato-Regular.ttf</string>
 		<string>Lato-Heavy.ttf</string>
+		<string>Lato-Regular.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -32,14 +32,14 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We&apos;ll show you cool things near you in the app.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We&apos;ll show you cool things near you in the app, and alert you via
-        notifications if you don&apos;t have the app open.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We&apos;ll show you cool things near you in the app. With the &quot;always&quot; option,
         we can also alert you via notifications if you don&apos;t have the app open.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We&apos;ll show you cool things near you in the app, and alert you via
+        notifications if you don&apos;t have the app open.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We&apos;ll show you cool things near you in the app.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
