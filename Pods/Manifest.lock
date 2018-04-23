@@ -6,6 +6,9 @@ PODS:
   - BoringSSL/Implementation (10.0):
     - BoringSSL/Interface (= 10.0)
   - BoringSSL/Interface (10.0)
+  - EstimoteBluetoothScanning (0.2.0)
+  - EstimoteProximitySDK (0.12.0):
+    - EstimoteBluetoothScanning (~> 0.2.0)
   - Firebase/Auth (4.10.1):
     - Firebase/Core
     - FirebaseAuth (= 4.4.4)
@@ -85,6 +88,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - EstimoteProximitySDK
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -97,6 +101,8 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - BoringSSL
+    - EstimoteBluetoothScanning
+    - EstimoteProximitySDK
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -120,6 +126,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   BoringSSL: 32764dbaf5f5888cf51fbaa172a010126b41bcd4
+  EstimoteBluetoothScanning: d44e46ebebe4e0e2696c4577168cb8660b5d4ee9
+  EstimoteProximitySDK: 279e73acff8ee84dc65e3d42e4dea0905e16bebd
   Firebase: 92c6ba593e32db0defde464a9adc981d5cb49f97
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
   FirebaseAuth: d040bb7a9db6dfc29d0e7ec82d48be51352b2581
@@ -140,6 +148,6 @@ SPEC CHECKSUMS:
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 2c1086660b9a4d95f3508695716c30b5133da854
+PODFILE CHECKSUM: 36d6d766c7e5a199e48887dc9da93eb4f61b30e4
 
 COCOAPODS: 1.5.0

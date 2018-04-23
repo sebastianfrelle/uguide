@@ -70,8 +70,6 @@
                         <outlet property="loginButton" destination="TLi-o7-xbN" id="Fh3-5b-MyT"/>
                         <outlet property="passwordField" destination="X10-Ru-oia" id="ZPD-Rq-N9u"/>
                         <outlet property="usernameField" destination="dOy-q2-Z6f" id="Y2v-2P-RYT"/>
-                        <outletCollection property="UILabels" destination="xyc-Uh-Y8S" collectionClass="NSMutableArray" id="S9I-US-CUy"/>
-                        <outletCollection property="UILabels" destination="vRZ-Wk-S63" collectionClass="NSMutableArray" id="NoB-DJ-sGd"/>
                         <segue destination="ZHl-hv-oiB" kind="show" identifier="ShowOnSuccessfulLogin" id="cn8-o1-OYS"/>
                     </connections>
                 </viewController>
@@ -484,11 +482,6 @@
                         <outlet property="courseID" destination="dKA-yQ-xnO" id="5YM-HD-zxD"/>
                         <outlet property="courseName" destination="SMI-6v-oyr" id="Haz-f9-qNu"/>
                         <outlet property="room" destination="MF0-aV-OoX" id="Eod-aa-xPf"/>
-                        <outletCollection property="LabelsStyling" destination="FHF-UF-K4W" collectionClass="NSMutableArray" id="B9B-HT-R0D"/>
-                        <outletCollection property="LabelsStyling" destination="8T3-OZ-d7z" collectionClass="NSMutableArray" id="eHv-Td-65K"/>
-                        <outletCollection property="LabelsStyling" destination="wuA-Df-l2E" collectionClass="NSMutableArray" id="Lg4-7v-D1N"/>
-                        <outletCollection property="LabelsStyling" destination="iFd-gf-Srf" collectionClass="NSMutableArray" id="BAH-hq-1kQ"/>
-                        <outletCollection property="LabelsStyling" destination="jXC-be-JBD" collectionClass="NSMutableArray" id="ncy-r0-Rkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apf-lx-SXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -543,11 +536,23 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgS-cG-RiY">
                                 <rect key="frame" x="0.0" y="64" width="375" height="479"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IndoorNavigation" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-MS-B1X">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IndoorMapMockup" translatesAutoresizingMaskIntoConstraints="NO" id="gKO-MS-B1X">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="479"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IndoorNavigation" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-Nq-Xkm">
-                                        <rect key="frame" x="229" y="264" width="124" height="165"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BeaconDeactivated" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-Nq-Xkm" userLabel="BeaconActivated_1" customClass="BeaconView" customModule="uguide" customModuleProvider="target">
+                                        <rect key="frame" x="261" y="365" width="59" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BeaconDeactivated" translatesAutoresizingMaskIntoConstraints="NO" id="73d-tG-xI7" userLabel="BeaconActivated_2" customClass="BeaconView" customModule="uguide" customModuleProvider="target">
+                                        <rect key="frame" x="261" y="159" width="59" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BeaconDeactivated" translatesAutoresizingMaskIntoConstraints="NO" id="iMT-E4-ZJc" userLabel="BeaconDeactivated_1" customClass="BeaconView" customModule="uguide" customModuleProvider="target">
+                                        <rect key="frame" x="51" y="238" width="59" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BeaconDeactivated" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-dg-I2M" userLabel="BeaconDeactivated_2" customClass="BeaconView" customModule="uguide" customModuleProvider="target">
+                                        <rect key="frame" x="51" y="40" width="59" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -579,8 +584,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="gKO-MS-B1X" id="IiB-5I-JG9"/>
-                        <outlet property="nestedImageView" destination="IgQ-Nq-Xkm" id="TAB-Vm-57A"/>
                         <outlet property="scrollView" destination="pgS-cG-RiY" id="B9O-St-QWg"/>
+                        <outletCollection property="beacons" destination="73d-tG-xI7" collectionClass="NSMutableArray" id="UFz-vJ-LSJ"/>
+                        <outletCollection property="beacons" destination="IgQ-Nq-Xkm" collectionClass="NSMutableArray" id="S72-Hw-QYv"/>
+                        <outletCollection property="beacons" destination="iMT-E4-ZJc" collectionClass="NSMutableArray" id="hcg-vv-743"/>
+                        <outletCollection property="beacons" destination="d0r-dg-I2M" collectionClass="NSMutableArray" id="798-Vb-Tea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzu-IM-VRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -644,6 +652,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IndoorNavigation" width="250" height="314"/>
+        <image name="BeaconDeactivated" width="100" height="140"/>
+        <image name="IndoorMapMockup" width="286" height="358"/>
     </resources>
 </document>
