@@ -9,6 +9,7 @@ target 'uguide' do
 	pod'GooglePlacePicker'
 	pod'Alamofire'
 	pod'SwiftyJSON'
+	pod'EstimoteProximitySDK'
 
   # Pods for uguide
   pod 'Firebase/Core'
