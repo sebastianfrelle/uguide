@@ -13,8 +13,6 @@ import EstimoteProximitySDK
 
 var GoogleMapsApiKey = "AIzaSyBoomyx6d-pqbuAANE4Bw7vUU1p_959evM"
 var GooglePlacesApiKey = "AIzaSyBB5HYutW3zGi6nih4aqygFteAF5Jl3Xyc"
-var EstimoteAppId = "sebastian-frelle-gmail-com-5ve"
-var EstimoteAppToken = "604d08ce391572487e3d0c2395562cca"
 
 import Firebase
 
@@ -24,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 1. Add a property to hold the Proximity Observer
     
     var window: UIWindow?
-    var proximityObserver: EPXProximityObserver!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -34,25 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Google service setup
         GMSServices.provideAPIKey(GoogleMapsApiKey)
         GMSPlacesClient.provideAPIKey(GooglePlacesApiKey)
-        
-        // Estimote credentialslet
-        let cloudCredentials = EPXCloudCredentials(appID: EstimoteAppId, appToken: EstimoteAppToken)
-        self.proximityObserver = EPXProximityObserver(
-            credentials: cloudCredentials,
-            errorBlock: { error in
-                print("proximity observer error: \(error)")
-        })
-        
-        let beacon = EPXProximityZone(
-            range: EPXProximityRange(desiredMeanTriggerDistance: 10.0)!,
-            attachmentKey: "room", attachmentValue: "Orange Rounded Table")
-        beacon.onEnterAction = { _ in
-            
-            
-        }
-        beacon.onExitAction = { _ in print("Colder...") }
-        
-        self.proximityObserver.startObserving([beacon])
         
         return true
     }

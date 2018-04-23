@@ -9,31 +9,65 @@
 import UIKit
 
 class BeaconNavigationViewController: UIViewController {
-
-//    @IBAction func exitNavigationController(_ sender: UIBarButtonItem) {
-//        print("I exited the thing 👍")
-//    }
-//
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet var beacons: [BeaconView]!
+    
+    var outerBeeCenter: CGPoint = CGPoint.zero
+    var innerBeeCenter: CGPoint = CGPoint.zero
+    
+    var centers = [BeaconView: CGPoint]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 3.0
+        scrollView.delegate = self
+        
+        // Build dictionary of centers
+        for beacon in beacons {
+            centers[beacon] = beacon.center
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension BeaconNavigationViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.imageView
     }
-    */
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        let scale = CGAffineTransform.identity.scaledBy(x: scrollView.zoomScale, y: scrollView.zoomScale)
+        
+        for beacon in beacons {
+            updateBeaconPosition(beacon: beacon, scale: scale)
+        }
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        let scaleAffineTransform = CGAffineTransform.identity.scaledBy(x: scale, y: scale)
+        scrollView.contentSize = self.imageView.bounds.size.applying(scaleAffineTransform)
+    }
 
+    private func updateBeaconPosition(beacon: BeaconView, scale: CGAffineTransform) {
+        guard !centers.isEmpty else {
+            fatalError("Centers dictionary was empty")
+        }
+        
+        guard let beaconCenter = centers[beacon] else {
+            fatalError("Center not set for beacon \(beacon)")
+        }
+        
+        let translatedPoint = beaconCenter.applying(scale)
+        beacon.transform = CGAffineTransform.identity.translatedBy(
+            x: translatedPoint.x - beaconCenter.x,
+            y: translatedPoint.y - beaconCenter.y)
+    }
 }

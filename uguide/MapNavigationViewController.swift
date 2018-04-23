@@ -21,23 +21,22 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     let locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
     var proximityObserver: EPXProximityObserver!
-    var EstimoteAppId = "sebastian-frelle-gmail-com-5ve"
-    var EstimoteAppToken = "604d08ce391572487e3d0c2395562cca"
+    let estimoteCloudCredentials = EPXCloudCredentials(appID: "sebastian-frelle-gmail-com-5ve", appToken: "604d08ce391572487e3d0c2395562cca")
     
     var placeId: String?
-    
     var locationStart = CLLocation()
     var didEndLocationSet = false
     var locationEnd = CLLocation()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setUpBeaconObserver()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         mapView.delegate = self
         placesClient = GMSPlacesClient.shared()
         lookUpPlaceID()
+        //setBeaconObserver()
     }
     
     func lookUpPlaceID() {
@@ -141,10 +140,24 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     // MARK: - Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
+        //proximityObserver.stopObservingZones()
     }
     
-    func setUpBeaconObserver() {
+    func setBeaconObserver() {
+        let proximityObserver = EPXProximityObserver(credentials: estimoteCloudCredentials, errorBlock: { error in
+            print("EPXProximityObserver error: \(error)")
+        })
         
+        let zone = EPXProximityZone(range: EPXProximityRange.custom(desiredMeanTriggerDistance: 3.0)!,
+                                    attachmentKey: "room", attachmentValue: "Nord Indgang")
+        zone.onEnterAction = { attachment in
+            print("Close to Beacon")
+        }
+        zone.onExitAction = { attachment in
+            print("Moving away from beacon")
+        }
+        
+        proximityObserver.startObserving([zone])
     }
     
 }
