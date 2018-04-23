@@ -18,6 +18,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    var region = CLCircularRegion()
     let locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
     let estimoteCloudCredentials = EPXCloudCredentials(appID: "sebastian-frelle-gmail-com-5ve", appToken: "604d08ce391572487e3d0c2395562cca")
@@ -55,8 +56,9 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 // Sets end location coordinates
                 self.locationEnd = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+                let radius = CLLocationDistance(60)
+                self.region = CLCircularRegion(center: self.locationEnd.coordinate, radius: radius, identifier: place.name)
                 self.didEndLocationSet = true
-                
                 self.createMarker(titleMarker: place.name, latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
             }
             else {
@@ -81,6 +83,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         mapView.settings.myLocationButton = true
     }
     
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locationStart = locations.first else {
             return
@@ -93,6 +96,10 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
             drawPath(startLocation: locationStart, endLocation: locationEnd)
             locationManager.stopUpdatingLocation()
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        //change view
     }
     
     //MARK: - this is function for create direction path, from start location to desination location
@@ -139,26 +146,5 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
         //proximityObserver.stopObservingZones()
-    }
-    
-    func isWithinRadius(currentLocation: CLLocation, endLocation: CLLocation) -> Bool {
-        let meterInCoordinates = 0.000008983
-        let meterOffset = 60.0
-        let x_center = endLocation.coordinate.latitude
-        let y_center = endLocation.coordinate.longitude
-        let x_point = currentLocation.coordinate.latitude
-        let y_point = currentLocation.coordinate.longitude
-        let radius = meterOffset * meterInCoordinates
-        let x_difference = (x_point-x_center)*(x_point-x_center)
-        let y_difference = (y_point-y_center)*(y_point-y_center)
-        if (x_difference + y_difference < (radius)^2) {
-            return true
-        }
-        else if (x_difference + y_difference == (radius)^2) {
-            return true
-        }
-        else {
-            return false
-        }
     }
 }
