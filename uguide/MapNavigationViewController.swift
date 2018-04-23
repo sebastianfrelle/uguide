@@ -20,7 +20,6 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     
     let locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
-    var proximityObserver: EPXProximityObserver!
     let estimoteCloudCredentials = EPXCloudCredentials(appID: "sebastian-frelle-gmail-com-5ve", appToken: "604d08ce391572487e3d0c2395562cca")
     
     var placeId: String?
@@ -36,7 +35,6 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         mapView.delegate = self
         placesClient = GMSPlacesClient.shared()
         lookUpPlaceID()
-        //setBeaconObserver()
     }
     
     func lookUpPlaceID() {
@@ -143,21 +141,24 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         //proximityObserver.stopObservingZones()
     }
     
-    func setBeaconObserver() {
-        let proximityObserver = EPXProximityObserver(credentials: estimoteCloudCredentials, errorBlock: { error in
-            print("EPXProximityObserver error: \(error)")
-        })
-        
-        let zone = EPXProximityZone(range: EPXProximityRange.custom(desiredMeanTriggerDistance: 3.0)!,
-                                    attachmentKey: "room", attachmentValue: "Nord Indgang")
-        zone.onEnterAction = { attachment in
-            print("Close to Beacon")
+    func isWithinRadius(currentLocation: CLLocation, endLocation: CLLocation) -> Bool {
+        let meterInCoordinates = 0.000008983
+        let meterOffset = 60.0
+        let x_center = endLocation.coordinate.latitude
+        let y_center = endLocation.coordinate.longitude
+        let x_point = currentLocation.coordinate.latitude
+        let y_point = currentLocation.coordinate.longitude
+        let radius = meterOffset * meterInCoordinates
+        let x_difference = (x_point-x_center)*(x_point-x_center)
+        let y_difference = (y_point-y_center)*(y_point-y_center)
+        if (x_difference + y_difference < (radius)^2) {
+            return true
         }
-        zone.onExitAction = { attachment in
-            print("Moving away from beacon")
+        else if (x_difference + y_difference == (radius)^2) {
+            return true
         }
-        
-        proximityObserver.startObserving([zone])
+        else {
+            return false
+        }
     }
-    
 }
