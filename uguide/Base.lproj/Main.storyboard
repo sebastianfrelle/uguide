@@ -50,7 +50,7 @@
                                         <rect key="frame" x="0.0" y="186" width="200" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <segue destination="ZHl-hv-oiB" kind="show" id="Cc3-9M-Zz7"/>
+                                            <action selector="didTapLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="afZ-8x-rHz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -67,8 +67,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="TLi-o7-xbN" id="Fh3-5b-MyT"/>
+                        <outlet property="passwordField" destination="X10-Ru-oia" id="ZPD-Rq-N9u"/>
+                        <outlet property="usernameField" destination="dOy-q2-Z6f" id="Y2v-2P-RYT"/>
                         <outletCollection property="UILabels" destination="xyc-Uh-Y8S" collectionClass="NSMutableArray" id="S9I-US-CUy"/>
                         <outletCollection property="UILabels" destination="vRZ-Wk-S63" collectionClass="NSMutableArray" id="NoB-DJ-sGd"/>
+                        <segue destination="ZHl-hv-oiB" kind="show" identifier="ShowOnSuccessfulLogin" id="cn8-o1-OYS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

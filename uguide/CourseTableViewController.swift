@@ -9,67 +9,21 @@
 import UIKit
 import os.log
 
+import FirebaseAuth
 import FirebaseFirestore
 
 class CourseTableViewController: UITableViewController {
     
     //MARK: Properties
-    private var courses: [Course] = []
-    private var documents: [DocumentSnapshot] = []
+    private var courses = [Course]()
     
-    private var query: Query? {
-        didSet {
-            if let listener = listener {
-                listener.remove()
-                observeQuery()
-            }
-        }
-    }
-    
-    private var listener: ListenerRegistration?
-    
-    private func observeQuery() {
-        guard let query = query else { return }
-        stopObserving()
-        
-        // Display data from Firestore, part one
-        listener = query.addSnapshotListener { [unowned self] (snapshot, error) in
-            guard let snapshot = snapshot else {
-                print("Error fetching snapshot results: \(error!)")
-                return
-            }
-            
-            let models = snapshot.documents.map { (document) -> Course in
-                if let model = Course(dictionary: document.data()) {
-                    return model
-                } else {
-                    // Don't use fatalError here in a real app
-                    fatalError("Unable to initialize type \(Course.self) with dictionary \(document.data())")
-                }
-            }
-            
-            self.courses = models
-            self.documents = snapshot.documents
-            
-            self.tableView.reloadData()
-        }
-    }
-    
-    func stopObserving() {
-        listener?.remove()
-    }
-    
-    func baseQuery() -> Query {
-        return Firestore.firestore().collection("courses").limit(to: 50)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-        query = baseQuery()
         
+        populate()
         // Load the sample data
 //        loadCourses()
         
@@ -80,23 +34,6 @@ class CourseTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        observeQuery()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        stopObserving()
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -140,41 +77,6 @@ class CourseTableViewController: UITableViewController {
         tableView.insertRows(at: [newIndexPath], with: .automatic)
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -243,5 +145,57 @@ class CourseTableViewController: UITableViewController {
 //
 //        courses += [course1, course2, course3]
 //    }
-
+    
+    private func populate() {
+        guard let user = Auth.auth().currentUser else {
+            fatalError("Authorized user not set")
+        }
+        
+        guard let email = user.email else {
+            fatalError("Authorized user has no email")
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("users").whereField("email", isEqualTo: email).getDocuments { [unowned self] (snapshot, error) in
+            if let error = error {
+                print("Query executed with error \(error)")
+                return
+            }
+            
+            guard let snapshot = snapshot else {
+                os_log("snapshot not set", log: .default, type: .error)
+                return
+            }
+            
+            let users = snapshot.documents
+            guard users.count == 1, let user = users.first else {
+                os_log("Unexpected number of users with specified e-mail", log: .default, type: .error)
+                return
+            }
+            
+            db.collection("users").document(user.documentID).collection("courses").getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Query executed with error \(error)")
+                    return
+                }
+                
+                guard let snapshot = snapshot else {
+                    os_log("snapshot not set", log: .default, type: .error)
+                    return
+                }
+                
+                let models = snapshot.documents.map { document -> Course in
+                    if let course = Course(dictionary: document.data()) {
+                        return course
+                    } else {
+                        fatalError("Could not initialize course from dictionary")
+                    }
+                }
+                
+                self.courses = models
+                
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
