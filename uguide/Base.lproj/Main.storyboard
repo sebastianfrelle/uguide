@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,36 +24,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xfA-9h-UdG">
-                                <rect key="frame" x="87.5" y="100" width="200" height="216"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g1O-Ua-NVH">
+                                <rect key="frame" x="0.0" y="30" width="375" height="637"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xfA-9h-UdG">
+                                <rect key="frame" x="87.5" y="100" width="200" height="177"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyc-Uh-Y8S" userLabel="Username">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dOy-q2-Z6f">
-                                        <rect key="frame" x="0.0" y="43" width="200" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="username"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRZ-Wk-S63" userLabel="Password">
-                                        <rect key="frame" x="0.0" y="93" width="200" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X10-Ru-oia">
-                                        <rect key="frame" x="0.0" y="136" width="200" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YEN-jP-xzA">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="57"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyc-Uh-Y8S" userLabel="Username">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dOy-q2-Z6f">
+                                                <rect key="frame" x="0.0" y="27" width="200" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Wg4-KF-pzX">
+                                        <rect key="frame" x="0.0" y="72" width="200" height="57"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRZ-Wk-S63" userLabel="Password">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X10-Ru-oia">
+                                                <rect key="frame" x="0.0" y="27" width="200" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLi-o7-xbN">
-                                        <rect key="frame" x="0.0" y="186" width="200" height="30"/>
-                                        <state key="normal" title="Login"/>
+                                        <rect key="frame" x="0.0" y="144" width="200" height="33"/>
+                                        <color key="backgroundColor" red="0.36164315214548581" green="0.50272970280076923" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <state key="normal" title="Login Uguide">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="ZHl-hv-oiB" kind="show" id="Cc3-9M-Zz7"/>
                                         </connections>
@@ -63,17 +86,21 @@
                         <constraints>
                             <constraint firstItem="xfA-9h-UdG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="Y8O-F9-vPe"/>
                             <constraint firstItem="xfA-9h-UdG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c1I-jB-I88"/>
+                            <constraint firstItem="g1O-Ua-NVH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="ojO-SD-nkS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outletCollection property="UILabel" destination="xyc-Uh-Y8S" collectionClass="NSMutableArray" id="F4T-Rd-eQv"/>
-                        <outletCollection property="UILabel" destination="vRZ-Wk-S63" collectionClass="NSMutableArray" id="eGL-FV-3z6"/>
+                        <outlet property="LoginBtn" destination="TLi-o7-xbN" id="AfU-xs-Yao"/>
+                        <outletCollection property="Labels" destination="xyc-Uh-Y8S" collectionClass="NSMutableArray" id="e1k-ct-b06"/>
+                        <outletCollection property="TextFields" destination="dOy-q2-Z6f" collectionClass="NSMutableArray" id="ILb-Vq-BMf"/>
+                        <outletCollection property="Labels" destination="vRZ-Wk-S63" collectionClass="NSMutableArray" id="Q1e-OG-fhE"/>
+                        <outletCollection property="TextFields" destination="X10-Ru-oia" collectionClass="NSMutableArray" id="oqN-Ic-YTO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-14" y="659"/>
+            <point key="canvasLocation" x="-15.199999999999999" y="658.92053973013503"/>
         </scene>
         <!--Courses-->
         <scene sceneID="hce-jK-hRE">
