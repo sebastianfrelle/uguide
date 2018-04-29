@@ -96,7 +96,15 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("You entered your region")
+        let alert = UIAlertController(title: "You entered indoor Region", message: "Click OK to enter indoor view", preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "OK", style: .default) { (alertAction) in
+            self.performSegue(withIdentifier: "showIndoorNav", sender: nil)
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in
+        }
+        alert.addAction(actionOK)
+        alert.addAction(actionCancel)
+        self.present(alert, animated: true)
     }
     
     //MARK: - this is function for create direction path, from start location to desination location
