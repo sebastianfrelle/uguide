@@ -21,8 +21,6 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     var region = CLCircularRegion()
     let locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
-    let estimoteCloudCredentials = EPXCloudCredentials(appID: "sebastian-frelle-gmail-com-5ve", appToken: "604d08ce391572487e3d0c2395562cca")
-    
     var placeId: String?
     var locationStart = CLLocation()
     var didEndLocationSet = false
@@ -56,8 +54,8 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
                 
                 // Sets end location coordinates
                 self.locationEnd = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
-                let radius = CLLocationDistance(60)
-                self.region = CLCircularRegion(center: self.locationEnd.coordinate, radius: radius, identifier: place.name)
+                let radius = CLLocationDistance(50)
+                self.region = CLCircularRegion(center: self.locationStart.coordinate, radius: radius, identifier: place.name)
                 self.didEndLocationSet = true
                 self.createMarker(titleMarker: place.name, latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
             }
@@ -88,7 +86,6 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         guard let locationStart = locations.first else {
             return
         }
-        print("Location = \(locationStart.coordinate)")
         //Sets the start location variable
         mapView.camera = GMSCameraPosition(target: locationStart.coordinate, zoom: 14, bearing: 0, viewingAngle: 0)
         
@@ -99,14 +96,12 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        //change view
+        print("You entered your region")
     }
     
     //MARK: - this is function for create direction path, from start location to desination location
     func drawPath(startLocation: CLLocation, endLocation: CLLocation)
     {
-        print(startLocation.coordinate, "Start Location")
-        print(endLocation.coordinate, "End Location")
         let origin = "\(startLocation.coordinate.latitude),\(startLocation.coordinate.longitude)"
         let destination = "\(endLocation.coordinate.latitude),\(endLocation.coordinate.longitude)"
         
@@ -115,14 +110,13 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         
         Alamofire.request(url).responseJSON { response in
             
-            print(response.request as Any)  // original URL request
-            print(response.response as Any) // HTTP URL response
-            print(response.data as Any)     // server data
-            print(response.result as Any)   // result of response serialization
+            //print(response.request as Any)  // original URL request
+            //print(response.response as Any) // HTTP URL response
+            //print(response.data as Any)     // server data
+            //print(response.result as Any)   // result of response serialization
             
             let json = try? JSON(data: response.data!)
             let routes = json!["routes"].arrayValue
-            print(routes)
             
             for route in routes
             {
@@ -145,6 +139,5 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     // MARK: - Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
-        //proximityObserver.stopObservingZones()
     }
 }

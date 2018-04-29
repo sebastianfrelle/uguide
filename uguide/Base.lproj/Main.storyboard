@@ -543,7 +543,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Indoor" id="iyx-It-CJb">
                             <connections>
-                                <segue destination="cjY-ye-lpk" kind="show" id="Luk-EM-Ge6"/>
+                                <segue destination="cjY-ye-lpk" kind="show" identifier="showIndoorNav" id="Luk-EM-Ge6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -653,7 +653,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xMe-Kc-SEN" secondAttribute="trailing" id="AqH-YJ-pph"/>
+                            <constraint firstItem="xMe-Kc-SEN" firstAttribute="leading" secondItem="c1G-Ih-YhP" secondAttribute="leading" id="H4B-bh-mgF"/>
+                            <constraint firstItem="xMe-Kc-SEN" firstAttribute="trailing" secondItem="c1G-Ih-YhP" secondAttribute="trailing" id="Han-Ph-9PL"/>
                             <constraint firstItem="xMe-Kc-SEN" firstAttribute="leading" secondItem="6bY-18-Cy3" secondAttribute="leading" id="IrQ-nr-NsL"/>
+                            <constraint firstItem="xMe-Kc-SEN" firstAttribute="top" secondItem="c1G-Ih-YhP" secondAttribute="top" id="KEs-2N-OO2"/>
+                            <constraint firstItem="c1G-Ih-YhP" firstAttribute="bottom" secondItem="xMe-Kc-SEN" secondAttribute="bottom" id="PMz-Lm-MZ5"/>
                             <constraint firstItem="xMe-Kc-SEN" firstAttribute="top" secondItem="c1G-Ih-YhP" secondAttribute="top" id="Tte-UC-09M"/>
                             <constraint firstItem="c1G-Ih-YhP" firstAttribute="bottom" secondItem="xMe-Kc-SEN" secondAttribute="bottom" constant="124" id="gNw-Yc-PwO"/>
                         </constraints>
