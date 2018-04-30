@@ -10,7 +10,6 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import EstimoteProximitySDK
-
 var GoogleMapsApiKey = "AIzaSyBoomyx6d-pqbuAANE4Bw7vUU1p_959evM"
 var GooglePlacesApiKey = "AIzaSyBB5HYutW3zGi6nih4aqygFteAF5Jl3Xyc"
 
@@ -18,8 +17,6 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    // 1. Add a property to hold the Proximity Observer
     
     var window: UIWindow?
 

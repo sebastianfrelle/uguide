@@ -10,17 +10,16 @@ import UIKit
 import os.log
 
 class AddCourseViewController: UIViewController, UITextFieldDelegate {
-    
+    //MARK: Properties
     var course: Course?
     
+    //MARK: Views
     @IBOutlet weak var courseNameField: UITextField!
     @IBOutlet weak var courseIDField: UITextField!
     @IBOutlet weak var campusField: UITextField!
     @IBOutlet weak var buildingField: UITextField!
     @IBOutlet weak var roomField: UITextField!
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
     @IBOutlet var courseFields: [UITextField]!
     
     override func viewDidLoad() {
@@ -29,10 +28,7 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
         for cf in courseFields {
             cf.delegate = self
         }
-        	
         saveButton.isEnabled = false
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,7 +39,6 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: - Navigation
-    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -53,15 +48,12 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
             
             return
         }
-        
-        let name = courseNameField.text!
-        let id = courseIDField.text!
-        let campus = Campus(name: campusField.text!)
-        let building = Building(name: buildingField.text!)
-        let room = Room(name: roomField.text!)
-        
-//        course = Course(name: name,
-//                        id: id)
+        //MARK: TO BE DELETED
+        //let name = courseNameField.text!
+        //let id = courseIDField.text!
+        //let campus = Campus(name: campusField.text!)
+        //let building = Building(name: buildingField.text!)
+        //let room = Room(name: roomField.text!)
     }
     
     //MARK: Private methods
@@ -73,7 +65,6 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
-        
         saveButton.isEnabled = true
     }
     
@@ -87,7 +78,6 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         return true
     }
     

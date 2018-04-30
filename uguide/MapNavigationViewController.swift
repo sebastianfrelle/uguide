@@ -16,8 +16,13 @@ import EstimoteProximitySDK
 
 class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
+    //MARK Views
     @IBOutlet weak var mapView: GMSMapView!
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
     
+    //MARK Properties
     var region = CLCircularRegion()
     let locationManager = CLLocationManager()
     var placesClient: GMSPlacesClient!
@@ -36,6 +41,8 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         lookUpPlaceID()
     }
     
+    //MARK: Functions
+    //Looks for a place's name and location from a placeID.
     func lookUpPlaceID() {
         guard let placeId = placeId else {
             fatalError("No placeId set")
@@ -64,7 +71,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
             }
         })
     }
-    // MARK: Function to create marker
+    //Creates marker at end location
     func createMarker(titleMarker: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(latitude, longitude)
@@ -72,6 +79,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         marker.map = mapView
     }
     
+    //MARK: CCLocationManagerDelegate functions
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         guard status == .authorizedWhenInUse else {
             return
@@ -81,7 +89,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         mapView.settings.myLocationButton = true
     }
     
-    
+    //The function gets the currentlocation of the user, and places the camera position at the location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locationStart = locations.first else {
             return
@@ -95,6 +103,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         }
     }
     
+    //This method controls when the users enters a region
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         let alert = UIAlertController(title: "You entered indoor Region", message: "Click OK to enter indoor view", preferredStyle: .alert)
         let actionOK = UIAlertAction(title: "OK", style: .default) { (alertAction) in
@@ -118,6 +127,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
         
         Alamofire.request(url).responseJSON { response in
             
+            //Prints out the response if needed
             //print(response.request as Any)  // original URL request
             //print(response.response as Any) // HTTP URL response
             //print(response.data as Any)     // server data
@@ -125,6 +135,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
             
             let json = try? JSON(data: response.data!)
             let routes = json!["routes"].arrayValue
+            //print(routes)
             
             for route in routes
             {
@@ -142,10 +153,5 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Navigation
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
     }
 }

@@ -9,11 +9,16 @@
 import UIKit
 
 class BeaconView: UIImageView {
+    
+    //MARK: Properties
+    
     enum State {
         case activated, deactivated
     }
     
     var state: State = .deactivated
+    
+    //MARK: Functions
     
     func activate() {
         state = .activated

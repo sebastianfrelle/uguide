@@ -12,7 +12,7 @@ class CourseViewController: UIViewController {
     //MARK: Properties
     var course: Course?
     
-    //MARK: Properties for styling
+    //MARK: Views
     @IBOutlet weak var courseName: UILabel!
     @IBOutlet weak var courseID: UILabel!
     @IBOutlet weak var campus: UILabel!
@@ -22,18 +22,17 @@ class CourseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Styles the button
         takeMeThereBtn.layer.cornerRadius = 6
         
         guard let course = course else {
             fatalError("No course set")
         }
         
-        // Set navigation bar title
+        // Set navigation bar title and textlabel titles
         title = "\(course.id): \(course.name)"
-        
         courseName.text = course.name
         courseID.text = course.id
-        
         campus.text = course.courseLocation.campus
         building.text = course.courseLocation.building
         room.text = course.courseLocation.room
@@ -45,10 +44,8 @@ class CourseViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    
     @IBAction func unwindToCourseView(sender: UIStoryboardSegue) {
-        print("Unwound to course view 🇸🇪")
-        print(sender)
+        //print(sender)
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

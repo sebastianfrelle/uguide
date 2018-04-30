@@ -18,13 +18,12 @@ class CourseTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    // Configure the view for the selected state
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    //Sets the name of each cell
     func populate(course: Course) {        
         courseName.text = course.name
         courseID.text = course.id

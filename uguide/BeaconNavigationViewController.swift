@@ -9,14 +9,15 @@
 import UIKit
 
 class BeaconNavigationViewController: UIViewController {
+    
+    //MARK: Views
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet var beacons: [BeaconView]!
     
+    //MARK: Properties
     var outerBeeCenter: CGPoint = CGPoint.zero
     var innerBeeCenter: CGPoint = CGPoint.zero
-    
     var centers = [BeaconView: CGPoint]()
     
     override func viewDidLoad() {
