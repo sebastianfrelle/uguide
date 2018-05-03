@@ -529,13 +529,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jGm-ap-7Oi" customClass="GMSMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGm-ap-7Oi" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jGm-ap-7Oi" firstAttribute="leading" secondItem="cto-UX-Vf3" secondAttribute="leading" id="7yR-CG-UB2"/>
+                            <constraint firstItem="jGm-ap-7Oi" firstAttribute="top" secondItem="cto-UX-Vf3" secondAttribute="top" id="F5I-zB-zUx"/>
+                            <constraint firstItem="jGm-ap-7Oi" firstAttribute="bottom" secondItem="cto-UX-Vf3" secondAttribute="bottom" id="JOh-29-4Iv"/>
+                            <constraint firstItem="jGm-ap-7Oi" firstAttribute="trailing" secondItem="cto-UX-Vf3" secondAttribute="trailing" id="khu-T8-uj3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cto-UX-Vf3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Find Building" id="r2h-Il-wU7">

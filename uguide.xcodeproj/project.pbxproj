@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6BA47533F91638123A06966A /* Pods_uguideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */; };
+		491413C0C99329B5195152B7 /* Pods_uguideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */; };
+		89B08A4F209B3C670093D0A5 /* CourseLocationModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B08A4E209B3C670093D0A5 /* CourseLocationModelTest.swift */; };
 		89DD004C208E09FC000BA8FB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89DD004A208E09FB000BA8FB /* Lato-Regular.ttf */; };
 		89DD004D208E09FC000BA8FB /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89DD004B208E09FB000BA8FB /* Lato-Heavy.ttf */; };
 		965C06342084BF600001C6D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06332084BF600001C6D3 /* AppDelegate.swift */; };
@@ -15,7 +16,6 @@
 		965C06392084BF600001C6D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965C06372084BF600001C6D3 /* Main.storyboard */; };
 		965C063B2084BF610001C6D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965C063A2084BF610001C6D3 /* Assets.xcassets */; };
 		965C063E2084BF610001C6D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965C063C2084BF610001C6D3 /* LaunchScreen.storyboard */; };
-		965C06492084BF610001C6D3 /* uguideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06482084BF610001C6D3 /* uguideTests.swift */; };
 		965C065D2084C0130001C6D3 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06542084C0130001C6D3 /* Building.swift */; };
 		965C065E2084C0130001C6D3 /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06552084C0130001C6D3 /* University.swift */; };
 		965C065F2084C0130001C6D3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06562084C0130001C6D3 /* Model.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		965C06452084BF610001C6D3 /* PBXContainerItemProxy */ = {
+		89B08A51209B3C670093D0A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 965C06282084BF600001C6D3 /* Project object */;
 			proxyType = 1;
@@ -52,6 +52,9 @@
 		3966A9B842895EE625666352 /* Pods_uguide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uguide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uguideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD282E6FD834038AA5DD720 /* Pods-uguide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.debug.xcconfig"; sourceTree = "<group>"; };
+		89B08A4C209B3C670093D0A5 /* uguideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uguideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89B08A4E209B3C670093D0A5 /* CourseLocationModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseLocationModelTest.swift; sourceTree = "<group>"; };
+		89B08A50209B3C670093D0A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89DD004A208E09FB000BA8FB /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		89DD004B208E09FB000BA8FB /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
 		8FD133165D9F7FFC77936F86 /* Pods-uguide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,9 +65,6 @@
 		965C063A2084BF610001C6D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		965C063D2084BF610001C6D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		965C063F2084BF610001C6D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		965C06442084BF610001C6D3 /* uguideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uguideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		965C06482084BF610001C6D3 /* uguideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uguideTests.swift; sourceTree = "<group>"; };
-		965C064A2084BF610001C6D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965C06542084C0130001C6D3 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		965C06552084C0130001C6D3 /* University.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
 		965C06562084C0130001C6D3 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -89,19 +89,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		89B08A49209B3C670093D0A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				491413C0C99329B5195152B7 /* Pods_uguideTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		965C062D2084BF600001C6D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FA1227CC4036317549987277 /* Pods_uguide.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		965C06412084BF610001C6D3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6BA47533F91638123A06966A /* Pods_uguideTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +117,15 @@
 				E4366D2DD4DE9F945849DB76 /* Pods-uguideTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		89B08A4D209B3C670093D0A5 /* uguideTests */ = {
+			isa = PBXGroup;
+			children = (
+				89B08A4E209B3C670093D0A5 /* CourseLocationModelTest.swift */,
+				89B08A50209B3C670093D0A5 /* Info.plist */,
+			);
+			path = uguideTests;
 			sourceTree = "<group>";
 		};
 		89DD0049208E09EF000BA8FB /* fonts */ = {
@@ -141,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				965C06322084BF600001C6D3 /* uguide */,
-				965C06472084BF610001C6D3 /* uguideTests */,
+				89B08A4D209B3C670093D0A5 /* uguideTests */,
 				965C06312084BF600001C6D3 /* Products */,
 				0993157BEFC8B64FC7354CA6 /* Pods */,
 				8AC92C5DF6A4CDFC62F8755D /* Frameworks */,
@@ -152,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				965C06302084BF600001C6D3 /* uguide.app */,
-				965C06442084BF610001C6D3 /* uguideTests.xctest */,
+				89B08A4C209B3C670093D0A5 /* uguideTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,15 +190,6 @@
 			path = uguide;
 			sourceTree = "<group>";
 		};
-		965C06472084BF610001C6D3 /* uguideTests */ = {
-			isa = PBXGroup;
-			children = (
-				965C06482084BF610001C6D3 /* uguideTests.swift */,
-				965C064A2084BF610001C6D3 /* Info.plist */,
-			);
-			path = uguideTests;
-			sourceTree = "<group>";
-		};
 		965C06532084C0130001C6D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +210,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		89B08A4B209B3C670093D0A5 /* uguideTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89B08A53209B3C670093D0A5 /* Build configuration list for PBXNativeTarget "uguideTests" */;
+			buildPhases = (
+				E2BF168BCB292240C85554FD /* [CP] Check Pods Manifest.lock */,
+				89B08A48209B3C670093D0A5 /* Sources */,
+				89B08A49209B3C670093D0A5 /* Frameworks */,
+				89B08A4A209B3C670093D0A5 /* Resources */,
+				B0BDF402727AB780BC7D0E06 /* [CP] Embed Pods Frameworks */,
+				E72236BEC9C6DC3C8C17C510 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89B08A52209B3C670093D0A5 /* PBXTargetDependency */,
+			);
+			name = uguideTests;
+			productName = uguideTests;
+			productReference = 89B08A4C209B3C670093D0A5 /* uguideTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		965C062F2084BF600001C6D3 /* uguide */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 965C064D2084BF610001C6D3 /* Build configuration list for PBXNativeTarget "uguide" */;
@@ -230,27 +251,6 @@
 			productReference = 965C06302084BF600001C6D3 /* uguide.app */;
 			productType = "com.apple.product-type.application";
 		};
-		965C06432084BF610001C6D3 /* uguideTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 965C06502084BF610001C6D3 /* Build configuration list for PBXNativeTarget "uguideTests" */;
-			buildPhases = (
-				77838C785E954071DB57003B /* [CP] Check Pods Manifest.lock */,
-				965C06402084BF610001C6D3 /* Sources */,
-				965C06412084BF610001C6D3 /* Frameworks */,
-				965C06422084BF610001C6D3 /* Resources */,
-				FE9BF1AA21B100A07D88A61B /* [CP] Embed Pods Frameworks */,
-				CF5AF240AE95704EFAE3DE99 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				965C06462084BF610001C6D3 /* PBXTargetDependency */,
-			);
-			name = uguideTests;
-			productName = uguideTests;
-			productReference = 965C06442084BF610001C6D3 /* uguideTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -261,12 +261,12 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Sebastian Frelle Koch";
 				TargetAttributes = {
-					965C062F2084BF600001C6D3 = {
-						CreatedOnToolsVersion = 9.3;
-					};
-					965C06432084BF610001C6D3 = {
+					89B08A4B209B3C670093D0A5 = {
 						CreatedOnToolsVersion = 9.3;
 						TestTargetID = 965C062F2084BF600001C6D3;
+					};
+					965C062F2084BF600001C6D3 = {
+						CreatedOnToolsVersion = 9.3;
 					};
 				};
 			};
@@ -284,12 +284,19 @@
 			projectRoot = "";
 			targets = (
 				965C062F2084BF600001C6D3 /* uguide */,
-				965C06432084BF610001C6D3 /* uguideTests */,
+				89B08A4B209B3C670093D0A5 /* uguideTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		89B08A4A209B3C670093D0A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		965C062E2084BF600001C6D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,34 +310,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		965C06422084BF610001C6D3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		77838C785E954071DB57003B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-uguideTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7C9FE2C671ADC570A40208D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,6 +329,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0BDF402727AB780BC7D0E06 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguideTests/Pods-uguideTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BD9614BFB507ADAC87F0A9B8 /* [CP] Embed Pods Frameworks */ = {
@@ -393,7 +390,25 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF5AF240AE95704EFAE3DE99 /* [CP] Copy Pods Resources */ = {
+		E2BF168BCB292240C85554FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-uguideTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E72236BEC9C6DC3C8C17C510 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -430,24 +445,17 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguide/Pods-uguide-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FE9BF1AA21B100A07D88A61B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguideTests/Pods-uguideTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		89B08A48209B3C670093D0A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89B08A4F209B3C670093D0A5 /* CourseLocationModelTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		965C062C2084BF600001C6D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -475,21 +483,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		965C06402084BF610001C6D3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				965C06492084BF610001C6D3 /* uguideTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		965C06462084BF610001C6D3 /* PBXTargetDependency */ = {
+		89B08A52209B3C670093D0A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 965C062F2084BF600001C6D3 /* uguide */;
-			targetProxy = 965C06452084BF610001C6D3 /* PBXContainerItemProxy */;
+			targetProxy = 89B08A51209B3C670093D0A5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -513,6 +513,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		89B08A54209B3C670093D0A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A95D39E07C9A54F6A832FFBA /* Pods-uguideTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M25AUG2865;
+				INFOPLIST_FILE = uguideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad.uguideTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uguide.app/uguide";
+			};
+			name = Debug;
+		};
+		89B08A55209B3C670093D0A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4366D2DD4DE9F945849DB76 /* Pods-uguideTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M25AUG2865;
+				INFOPLIST_FILE = uguideTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad.uguideTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uguide.app/uguide";
+			};
+			name = Release;
+		};
 		965C064B2084BF610001C6D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -633,13 +667,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T7A9ML3683;
+				DEVELOPMENT_TEAM = M25AUG2865;
 				INFOPLIST_FILE = uguide/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianfrelle.uguide;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -652,66 +683,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T7A9ML3683;
+				DEVELOPMENT_TEAM = M25AUG2865;
 				INFOPLIST_FILE = uguide/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianfrelle.uguide;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		965C06512084BF610001C6D3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A95D39E07C9A54F6A832FFBA /* Pods-uguideTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T7A9ML3683;
-				INFOPLIST_FILE = uguideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sebastian-frelle.uguideTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uguide.app/uguide";
-			};
-			name = Debug;
-		};
-		965C06522084BF610001C6D3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4366D2DD4DE9F945849DB76 /* Pods-uguideTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T7A9ML3683;
-				INFOPLIST_FILE = uguideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sebastian-frelle.uguideTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/uguide.app/uguide";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		89B08A53209B3C670093D0A5 /* Build configuration list for PBXNativeTarget "uguideTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89B08A54209B3C670093D0A5 /* Debug */,
+				89B08A55209B3C670093D0A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		965C062B2084BF600001C6D3 /* Build configuration list for PBXProject "uguide" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -726,15 +719,6 @@
 			buildConfigurations = (
 				965C064E2084BF610001C6D3 /* Debug */,
 				965C064F2084BF610001C6D3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		965C06502084BF610001C6D3 /* Build configuration list for PBXNativeTarget "uguideTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				965C06512084BF610001C6D3 /* Debug */,
-				965C06522084BF610001C6D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

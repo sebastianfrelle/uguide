@@ -45,7 +45,6 @@ class CourseViewController: UIViewController {
     
     // MARK: - Navigation
     @IBAction func unwindToCourseView(sender: UIStoryboardSegue) {
-        //print(sender)
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
