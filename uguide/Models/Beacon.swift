@@ -8,21 +8,21 @@
 
 import UIKit
 
-struct Beacon: Model {
-    var position: Position
-    
-    var dictionary: [String : Any] {
-        return [
-            "position": position,
-        ]
-    }
-}
-
-struct Position {
-    var x, y: Double
-    
-    init(_ x: Double, _ y: Double) {
-        self.x = x
-        self.y = y
-    }
-}
+//struct Beacon: Model {
+//    var position: Position
+//    
+//    var dictionary: [String : Any] {
+//        return [
+//            "position": position,
+//        ]
+//    }
+//}
+//
+//struct Position {
+//    var x, y: Double
+//    
+//    init(_ x: Double, _ y: Double) {
+//        self.x = x
+//        self.y = y
+//    }
+//}

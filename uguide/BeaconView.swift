@@ -11,7 +11,6 @@ import UIKit
 class BeaconView: UIImageView {
     
     //MARK: Properties
-    
     enum State {
         case activated, deactivated
     }
@@ -19,7 +18,6 @@ class BeaconView: UIImageView {
     var state: State = .deactivated
     
     //MARK: Functions
-    
     func activate() {
         state = .activated
         image = #imageLiteral(resourceName: "BeaconActivated")

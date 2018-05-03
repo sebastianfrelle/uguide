@@ -661,7 +661,6 @@
                             <constraint firstItem="xMe-Kc-SEN" firstAttribute="trailing" secondItem="c1G-Ih-YhP" secondAttribute="trailing" id="Han-Ph-9PL"/>
                             <constraint firstItem="xMe-Kc-SEN" firstAttribute="leading" secondItem="6bY-18-Cy3" secondAttribute="leading" id="IrQ-nr-NsL"/>
                             <constraint firstItem="xMe-Kc-SEN" firstAttribute="top" secondItem="c1G-Ih-YhP" secondAttribute="top" id="KEs-2N-OO2"/>
-                            <constraint firstItem="c1G-Ih-YhP" firstAttribute="bottom" secondItem="xMe-Kc-SEN" secondAttribute="bottom" id="PMz-Lm-MZ5"/>
                             <constraint firstItem="xMe-Kc-SEN" firstAttribute="top" secondItem="c1G-Ih-YhP" secondAttribute="top" id="Tte-UC-09M"/>
                             <constraint firstItem="c1G-Ih-YhP" firstAttribute="bottom" secondItem="xMe-Kc-SEN" secondAttribute="bottom" constant="124" id="gNw-Yc-PwO"/>
                         </constraints>
@@ -677,10 +676,10 @@
                     <connections>
                         <outlet property="imageView" destination="Cdu-ha-jrM" id="KBD-Y4-fao"/>
                         <outlet property="scrollView" destination="xMe-Kc-SEN" id="dQR-U2-f2I"/>
-                        <outletCollection property="beacons" destination="fS5-8v-bCV" collectionClass="NSMutableArray" id="Tb3-ka-ZZO"/>
-                        <outletCollection property="beacons" destination="efx-xE-fyr" collectionClass="NSMutableArray" id="crD-ZH-yW0"/>
-                        <outletCollection property="beacons" destination="EG7-IS-hih" collectionClass="NSMutableArray" id="LLR-yO-b0r"/>
-                        <outletCollection property="beacons" destination="ebC-uf-gXP" collectionClass="NSMutableArray" id="htB-3N-jlG"/>
+                        <outletCollection property="beaconViews" destination="fS5-8v-bCV" collectionClass="NSMutableArray" id="Tb3-ka-ZZO"/>
+                        <outletCollection property="beaconViews" destination="efx-xE-fyr" collectionClass="NSMutableArray" id="crD-ZH-yW0"/>
+                        <outletCollection property="beaconViews" destination="EG7-IS-hih" collectionClass="NSMutableArray" id="LLR-yO-b0r"/>
+                        <outletCollection property="beaconViews" destination="ebC-uf-gXP" collectionClass="NSMutableArray" id="htB-3N-jlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8X9-LI-vER" userLabel="First Responder" sceneMemberID="firstResponder"/>

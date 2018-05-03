@@ -34,6 +34,7 @@
 		965C067520867B250001C6D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C067420867B240001C6D3 /* GoogleService-Info.plist */; };
 		9664F79E208E4E3C001E7296 /* BeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9664F79D208E4E3C001E7296 /* BeaconView.swift */; };
 		968C79F1208C8CB50047358E /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C79F0208C8CB50047358E /* LocalCollection.swift */; };
+		96EE7631209A4761007672E7 /* ProximityNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE7630209A4761007672E7 /* ProximityNavigationController.swift */; };
 		FA1227CC4036317549987277 /* Pods_uguide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3966A9B842895EE625666352 /* Pods_uguide.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		965C067420867B240001C6D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9664F79D208E4E3C001E7296 /* BeaconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconView.swift; sourceTree = "<group>"; };
 		968C79F0208C8CB50047358E /* LocalCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
+		96EE7630209A4761007672E7 /* ProximityNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityNavigationController.swift; sourceTree = "<group>"; };
 		A95D39E07C9A54F6A832FFBA /* Pods-uguideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguideTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguideTests/Pods-uguideTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4366D2DD4DE9F945849DB76 /* Pods-uguideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguideTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguideTests/Pods-uguideTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 		965C06322084BF600001C6D3 /* uguide */ = {
 			isa = PBXGroup;
 			children = (
+				96EE7630209A4761007672E7 /* ProximityNavigationController.swift */,
 				9664F79D208E4E3C001E7296 /* BeaconView.swift */,
 				965C067420867B240001C6D3 /* GoogleService-Info.plist */,
 				965C066E2084E8C00001C6D3 /* MapNavigationViewController.swift */,
@@ -453,6 +456,7 @@
 				968C79F1208C8CB50047358E /* LocalCollection.swift in Sources */,
 				965C06362084BF600001C6D3 /* AuthViewController.swift in Sources */,
 				965C06642084C0130001C6D3 /* Course.swift in Sources */,
+				96EE7631209A4761007672E7 /* ProximityNavigationController.swift in Sources */,
 				965C06622084C0130001C6D3 /* Room.swift in Sources */,
 				965C06712084E9150001C6D3 /* BeaconNavigationViewController.swift in Sources */,
 				965C065E2084C0130001C6D3 /* University.swift in Sources */,
@@ -629,13 +633,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M25AUG2865;
+				DEVELOPMENT_TEAM = T7A9ML3683;
 				INFOPLIST_FILE = uguide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianfrelle.uguide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -648,13 +652,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M25AUG2865;
+				DEVELOPMENT_TEAM = T7A9ML3683;
 				INFOPLIST_FILE = uguide/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sebastianfrelle.uguide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
