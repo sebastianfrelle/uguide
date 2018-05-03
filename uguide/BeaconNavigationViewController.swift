@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class BeaconNavigationViewController: UIViewController {
     
@@ -15,6 +16,13 @@ class BeaconNavigationViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var beaconViews: [BeaconView]!
     
+    @IBOutlet weak var lowerRightBeaconView: BeaconView!
+    @IBOutlet weak var lowerLeftBeaconView: BeaconView!
+    @IBOutlet weak var upperRightBeaconView: BeaconView!
+    @IBOutlet weak var upperLeftBeaconView: BeaconView!
+    
+    var beacons: [Beacon]?
+    
     //MARK: Properties
     var outerBeeCenter: CGPoint = CGPoint.zero
     var innerBeeCenter: CGPoint = CGPoint.zero
@@ -22,10 +30,17 @@ class BeaconNavigationViewController: UIViewController {
     
     var proximityNavigationController: ProximityNavigationController?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.proximityNavigationController = ProximityNavigationController.setup(for: <#T##[Beacon]#>)
+        setupBeacons()
+        guard let beacons = self.beacons else {
+            os_log("Failed to set up beacons", log: .default, type: .error)
+            return
+        }
+        
+        self.proximityNavigationController = ProximityNavigationController.setup(for: beacons)
+        self.proximityNavigationController?.startListening()
         
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 3.0
@@ -36,10 +51,25 @@ class BeaconNavigationViewController: UIViewController {
             centers[beaconView] = beaconView.center
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.proximityNavigationController?.stopListening()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func setupBeacons() {
+        self.beacons = [
+            Beacon(state: .deactivated, identifier: "322", location: "lower_right", view: lowerRightBeaconView),
+            Beacon(state: .deactivated, identifier: "323", location: "lower_left", view: lowerLeftBeaconView),
+            Beacon(state: .deactivated, identifier: "324", location: "upper_right", view: upperRightBeaconView),
+            Beacon(state: .deactivated, identifier: "325", location: "upper_left", view: upperLeftBeaconView)
+        ]
     }
 }
 

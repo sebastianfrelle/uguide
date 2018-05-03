@@ -675,7 +675,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="Cdu-ha-jrM" id="KBD-Y4-fao"/>
+                        <outlet property="lowerLeftBeaconView" destination="EG7-IS-hih" id="D7h-RY-0fw"/>
+                        <outlet property="lowerRightBeaconView" destination="efx-xE-fyr" id="OlU-GV-v3p"/>
                         <outlet property="scrollView" destination="xMe-Kc-SEN" id="dQR-U2-f2I"/>
+                        <outlet property="upperLeftBeaconView" destination="ebC-uf-gXP" id="xoP-sr-koe"/>
+                        <outlet property="upperRightBeaconView" destination="fS5-8v-bCV" id="Jea-iG-YZP"/>
                         <outletCollection property="beaconViews" destination="fS5-8v-bCV" collectionClass="NSMutableArray" id="Tb3-ka-ZZO"/>
                         <outletCollection property="beaconViews" destination="efx-xE-fyr" collectionClass="NSMutableArray" id="crD-ZH-yW0"/>
                         <outletCollection property="beaconViews" destination="EG7-IS-hih" collectionClass="NSMutableArray" id="LLR-yO-b0r"/>

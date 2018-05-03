@@ -1,8 +1,8 @@
 import EstimoteProximitySDK
 
 protocol ProximityZoneDelegate: class {
-    func didEnterZone(identifier: String)
-    func didExitZone(identifier: String)
+    func didEnterZone(location: String)
+    func didExitZone(location: String)
 }
 
 class ProximityNavigationController {
@@ -27,15 +27,17 @@ class ProximityNavigationController {
     init(beacons: [Beacon]) {
         self.state = .stopped
         
-        self.proximityObserver = EPXProximityObserver(credentials: EPXCloudCredentials(appID: "uguide-0tg", appToken: "3366bcb26dba5d30e5846bce426837be")) { error in
-            fatalError("failed to instantiate proximity observer with error: \(error)")
-        }
+        self.proximityObserver = EPXProximityObserver(
+            credentials: EPXCloudCredentials(
+                appID: "uguide-0tg",
+                appToken: "3366bcb26dba5d30e5846bce426837be"),
+            errorBlock: { error in fatalError("failed to instantiate proximity observer with error: \(error)") })
         
         self.zones = [ProximityZone]()
         
         self.beacons = beacons
         for beacon in self.beacons {
-            let zone = ProximityZone.create(for: beacon, withinMeters: 3)
+            let zone = ProximityZone.create(for: beacon, withinMeters: 2)
             zone.delegate = self
             
             self.zones.append(zone)
@@ -54,12 +56,32 @@ class ProximityNavigationController {
 }
 
 extension ProximityNavigationController: ProximityZoneDelegate {
-    func didEnterZone(identifier: String) {
-        print("Did enter zone of beacon w/identifier \(identifier)")
+    func didEnterZone(location: String) {
+        print("Did enter zone of beacon w/location \(location)")
+        for i in 0..<self.beacons.count {
+            if self.beacons[i].location != location {
+                continue
+            }
+            
+            self.beacons[i].activate()
+            return
+        }
+        
+        print("did not find beacon with location \(location)")
     }
     
-    func didExitZone(identifier: String) {
-        print("Did exit zone of beacon w/identifier \(identifier)")
+    func didExitZone(location: String) {
+        print("Did exit zone of beacon w/location \(location)")
+        for i in 0..<self.beacons.count {
+            if self.beacons[i].location != location {
+                continue
+            }
+            
+            self.beacons[i].deactivate()
+            return
+        }
+        
+        print("did not find beacon with location \(location)")
     }
 }
 
@@ -68,8 +90,8 @@ class ProximityZone {
     
     static func create(for beacon: Beacon, withinMeters range: Double) -> ProximityZone {
         let zone = EPXProximityZone(range: EPXProximityRange(desiredMeanTriggerDistance: range)!,
-                                    attachmentKey: "identifier",
-                                    attachmentValue: beacon.identifier)
+                                    attachmentKey: "location",
+                                    attachmentValue: beacon.location)
         
         return ProximityZone(zone: zone)
     }
@@ -87,21 +109,21 @@ class ProximityZone {
     
     private func onEnterHandler() -> ZoneActionHandler {
         return { attachment in
-            guard let identifier = attachment.payload["identifier"] as? String else {
-                fatalError("attachment payload (\(attachment.payload)) did not have key 'identifier'")
+            guard let location = attachment.payload["location"] as? String else {
+                fatalError("attachment payload (\(attachment.payload)) did not have key 'location'")
             }
             
-            self.delegate?.didEnterZone(identifier: identifier)
+            self.delegate?.didEnterZone(location: location)
         }
     }
     
     private func onExitHandler() -> ZoneActionHandler {
         return { attachment in
-            guard let identifier = attachment.payload["identifier"] as? String else {
-                fatalError("attachment payload (\(attachment.payload)) did not have key 'identifier'")
+            guard let location = attachment.payload["location"] as? String else {
+                fatalError("attachment payload (\(attachment.payload)) did not have key 'location'")
             }
             
-            self.delegate?.didExitZone(identifier: identifier)
+            self.delegate?.didExitZone(location: location)
         }
     }
 }
@@ -115,21 +137,41 @@ protocol Serializable {
 }
 
 struct Beacon {
-    var identifier: String
+    enum State {
+        case activated, deactivated
+    }
+    
+    var state: State = .deactivated
+    
+    var identifier, location: String
+    var view: BeaconView?
+    
+    mutating func activate() {
+        self.view?.activate()
+        self.state = .activated
+    }
+    
+    mutating func deactivate() {
+        self.view?.deactivate()
+        self.state = .deactivated
+    }
 }
 
 extension Beacon: Serializable {
     var serialized: Serialized {
         return [
-            "identifier": self.identifier
+            "identifier": self.identifier,
+            "location": self.location
         ]
     }
     
     init(dictionary: Serialized) {
-        guard let identifier = dictionary["identifier"] as? String else {
+        guard let identifier = dictionary["identifier"] as? String,
+            let location = dictionary["location"] as? String else {
             fatalError("Could not instantiate beacon from dictionary \(dictionary)")
         }
         
         self.identifier = identifier
+        self.location = location
     }
 }
