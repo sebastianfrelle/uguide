@@ -11,7 +11,7 @@ import XCTest
 
 class CourseLocationModelTest: XCTestCase {
     
-    func InitializeCourseLocationShouldReturnNotNil() {
+    func testInitializeCourseLocationShouldReturnNotNil() {
         let courseLocationDic = [
             "campus" : "Lyngby",
             "building" : "324",
@@ -21,15 +21,14 @@ class CourseLocationModelTest: XCTestCase {
         XCTAssertNotNil(testCourseLocation)
     }
     
-    func InitializeCourseLocationWithoutCampusShouldReturnNil() {
+    func testInitializeCourseLocationWithoutCampusShouldReturnNil() {
         let courseLocationDic = [
-            "campus" : "",
             "building" : "324",
             "room" : "",
             ]
         
         let testCourseLocation = CourseLocation(dictionary: courseLocationDic)
-        
+
         XCTAssertNil(testCourseLocation)
     }
     

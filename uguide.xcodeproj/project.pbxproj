@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		491413C0C99329B5195152B7 /* Pods_uguideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B976EBAEE39C2E3234A926 /* Pods_uguideTests.framework */; };
 		89B08A4F209B3C670093D0A5 /* CourseLocationModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B08A4E209B3C670093D0A5 /* CourseLocationModelTest.swift */; };
+		89B08A57209B3E120093D0A5 /* CourseModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B08A56209B3E120093D0A5 /* CourseModelTest.swift */; };
 		89DD004C208E09FC000BA8FB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89DD004A208E09FB000BA8FB /* Lato-Regular.ttf */; };
 		89DD004D208E09FC000BA8FB /* Lato-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89DD004B208E09FB000BA8FB /* Lato-Heavy.ttf */; };
 		965C06342084BF600001C6D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965C06332084BF600001C6D3 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		89B08A4C209B3C670093D0A5 /* uguideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uguideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B08A4E209B3C670093D0A5 /* CourseLocationModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseLocationModelTest.swift; sourceTree = "<group>"; };
 		89B08A50209B3C670093D0A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89B08A56209B3E120093D0A5 /* CourseModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModelTest.swift; sourceTree = "<group>"; };
 		89DD004A208E09FB000BA8FB /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		89DD004B208E09FB000BA8FB /* Lato-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Heavy.ttf"; sourceTree = "<group>"; };
 		8FD133165D9F7FFC77936F86 /* Pods-uguide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguide.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguide/Pods-uguide.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				89B08A4E209B3C670093D0A5 /* CourseLocationModelTest.swift */,
 				89B08A50209B3C670093D0A5 /* Info.plist */,
+				89B08A56209B3E120093D0A5 /* CourseModelTest.swift */,
 			);
 			path = uguideTests;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B08A57209B3E120093D0A5 /* CourseModelTest.swift in Sources */,
 				89B08A4F209B3C670093D0A5 /* CourseLocationModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,7 +525,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M25AUG2865;
 				INFOPLIST_FILE = uguideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad.uguideTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -538,7 +546,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M25AUG2865;
 				INFOPLIST_FILE = uguideTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad.uguideTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -669,7 +681,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M25AUG2865;
 				INFOPLIST_FILE = uguide/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -685,7 +700,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M25AUG2865;
 				INFOPLIST_FILE = uguide/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Moulvad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
