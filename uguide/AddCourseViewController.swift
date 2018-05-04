@@ -48,12 +48,6 @@ class AddCourseViewController: UIViewController, UITextFieldDelegate {
             
             return
         }
-        //MARK: TO BE DELETED
-        //let name = courseNameField.text!
-        //let id = courseIDField.text!
-        //let campus = Campus(name: campusField.text!)
-        //let building = Building(name: buildingField.text!)
-        //let room = Room(name: roomField.text!)
     }
     
     //MARK: Private methods
