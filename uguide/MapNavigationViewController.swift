@@ -62,7 +62,7 @@ class MapNavigationViewController: UIViewController, CLLocationManagerDelegate, 
                 // Sets end location coordinates
                 self.locationEnd = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
                 let radius = CLLocationDistance(50)
-                self.region = CLCircularRegion(center: self.locationStart.coordinate, radius: radius, identifier: place.name)
+                self.region = CLCircularRegion(center: self.locationEnd.coordinate, radius: radius, identifier: place.name)
                 self.didEndLocationSet = true
                 self.createMarker(titleMarker: place.name, latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
             }
