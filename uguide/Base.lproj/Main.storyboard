@@ -185,13 +185,7 @@
                             <outlet property="delegate" destination="sTh-ah-4cL" id="TOP-G9-NI7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Courses" id="ugg-kR-yFX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yw0-QO-KhG">
-                            <connections>
-                                <segue destination="2co-BP-aG5" kind="presentation" identifier="AddItem" id="W8h-zY-bHE"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Courses" id="ugg-kR-yFX"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7j-ZE-7bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Niq-rC-HQ3">
-                                <rect key="frame" x="16" y="116" width="343" height="58.5"/>
+                                <rect key="frame" x="16" y="72" width="343" height="58.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c15-08-LT3">
                                         <rect key="frame" x="0.0" y="0.0" width="101.5" height="20.5"/>
@@ -227,7 +221,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AZ3-gf-4gu">
-                                <rect key="frame" x="16" y="282.5" width="343" height="58.5"/>
+                                <rect key="frame" x="16" y="238.5" width="343" height="58.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyG-eE-4zE">
                                         <rect key="frame" x="0.0" y="0.0" width="63.5" height="20.5"/>
@@ -248,7 +242,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fwK-g0-dQI">
-                                <rect key="frame" x="16" y="352" width="343" height="58.5"/>
+                                <rect key="frame" x="16" y="308" width="343" height="58.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frl-SR-oY4">
                                         <rect key="frame" x="0.0" y="0.0" width="61.5" height="20.5"/>
@@ -269,7 +263,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dj6-Ut-5qj">
-                                <rect key="frame" x="16" y="419.5" width="343" height="58.5"/>
+                                <rect key="frame" x="16" y="375.5" width="343" height="58.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRa-ca-php">
                                         <rect key="frame" x="0.0" y="0.0" width="44.5" height="20.5"/>
@@ -290,7 +284,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGA-L4-78q">
-                                <rect key="frame" x="16" y="77" width="343" height="21"/>
+                                <rect key="frame" x="16" y="33" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="fl8-a3-3vg"/>
                                 </constraints>
@@ -299,13 +293,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JN9-d1-7X5">
-                                <rect key="frame" x="16" y="248" width="343" height="26.5"/>
+                                <rect key="frame" x="16" y="204" width="343" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SpL-DN-OZK">
-                                <rect key="frame" x="16" y="181.5" width="343" height="58.5"/>
+                                <rect key="frame" x="16" y="137.5" width="343" height="58.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ac-5V-Aut">
                                         <rect key="frame" x="0.0" y="0.0" width="75.5" height="20.5"/>
@@ -326,7 +320,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEPRECATED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n04-NU-QUt">
-                                <rect key="frame" x="89" y="347.5" width="196" height="36"/>
+                                <rect key="frame" x="89" y="325.5" width="196" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <color key="textColor" red="1" green="0.24536872933102605" blue="0.19578121266734971" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -596,24 +590,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQQ-MU-JFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="812" y="659"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5u6-fo-Cfp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2co-BP-aG5" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a81-ei-oJl">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="RsJ-fu-j9O" kind="relationship" relationship="rootViewController" id="SWO-9y-aNW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="33M-bA-m8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2541.5999999999999" y="285.60719640179911"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vAT-Gw-5cn">
